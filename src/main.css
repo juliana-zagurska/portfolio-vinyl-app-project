@@ -13,7 +13,8 @@
   text-rendering: optimizelegibility;
   text-size-adjust: 100%;
 }
-body, html {
+body,
+html {
   padding: 0;
   margin: 0;
   font-family: Arial, sans-serif;
@@ -83,7 +84,6 @@ body, html {
   width: 100%;
 }
 
-
 .search__artist {
   grid-row: 1;
 }
@@ -112,7 +112,7 @@ select {
   border: 1px solid #ccc;
   border-radius: 5px;
   background-color: #fff;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -126,10 +126,10 @@ select:focus {
 .search input {
   width: 350px;
   padding: 10px;
-  border: 1px solid #EDEEF0;
+  border: 1px solid #edeef0;
   border-radius: 4px;
-  background: #FFF;
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  background: #fff;
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 16px;
   font-style: normal;
   font-weight: 400;
@@ -141,18 +141,18 @@ select:focus {
   max-width: none;
   box-sizing: border-box;
   padding: 10px;
-  border: 1px solid #EDEEF0;
-  background: #FFF;
-  color: var(--ink-light, #6C7072);
+  border: 1px solid #edeef0;
+  background: #fff;
+  color: var(--ink-light, #6c7072);
 }
 .search__country select {
   width: 100%;
   max-width: none;
   box-sizing: border-box;
   padding: 10px;
-  border: 1px solid #EDEEF0;
-  background: #FFF;
-  color: var(--ink-light, #6C7072);
+  border: 1px solid #edeef0;
+  background: #fff;
+  color: var(--ink-light, #6c7072);
 }
 
 .search__button {
@@ -175,57 +175,58 @@ select:focus {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.item {
+.vinyl-card{
   display: grid;
   width: 100%;
 }
-.fa-heart{
+.fa-heart {
   position: absolute;
   padding: 10px;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
 }
 .filled path {
   fill: black;
 }
 
-.item img {
+.vinyl-card img {
   width: 100%;
   height: auto;
   border-radius: 15px;
   pointer-events: none;
 
-    -webkit-touch-callout: none;
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
 }
-.item-header{
+.item-header {
   margin: 0px;
 }
-.item-text-data{
- margin: 7px 0px 0px;
+.item-text-data {
+  margin: 7px 0px 0px;
 }
-.item h1 {
+.vinyl-card h1 {
   margin: 8px 0px 3px;
-  color: #0A2530;
+  color: #0a2530;
   font-family: Plus Jakarta Sans, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 700;
   line-height: normal;
 }
-.item h2 {
-  margin: 0px;
-  color: #0A2530;
+.vinyl-card h2 {
+  margin: 0px 0px 8px;
+  color: #0a2530;
   font-family: Plus Jakarta Sans, sans-serif;
   font-size: 14px;
   font-style: normal;
   font-weight: 500;
   line-height: normal;
 }
-.item p {
+.vinyl-card p {
   margin: 0px 0px 3px;
   color: #738286;
   font-family: Plus Jakarta Sans, sans-serif;
@@ -234,8 +235,8 @@ select:focus {
   font-weight: 400;
   line-height: normal;
 }
-.item span {
-  color: #0A2530;
+.vinyl-card__content span {
+  color: #0a2530;
   font-family: Plus Jakarta Sans, sans-serif;
   font-size: 14px;
   font-style: normal;
@@ -246,15 +247,12 @@ select:focus {
   display: flex;
   width: 100%;
   height: 44px;
-  flex-direction: row-reverse;
   align-items: center;
   justify-content: center;
   padding: 0px;
   border: none;
   border-radius: 4px;
   margin: 8px 0px 0px;
-  background: #0A2530;
-  color: #FFF;
   cursor: pointer;
   font-family: Plus Jakarta Sans, sans-serif;
   font-size: 16px;
@@ -262,6 +260,28 @@ select:focus {
   font-weight: 500;
   gap: 6px;
   line-height: normal;
+}
+.add-button--default {
+  background-color: #0a2530;
+  color: #fff;
+}
+.add-button:hover {
+  background-color: #05141a;
+}
+
+.add-button.button--active {
+  background-color: #efeef0;
+  color: #05141a;
+}
+.add-button:active {
+  background-color: #05141a;
+  transform: scale(0.98);
+  transform-origin: 50% 50%;
+}
+.button__icon {
+  flex: 0 0 auto;
+  fill: currentColor;
+  line-height: 1;
 }
 /* Footer styles */
 .footer {
@@ -286,9 +306,8 @@ select:focus {
   border: 0px;
   border-radius: 8px;
   background: #fff;
-  color: #0A2530;
+  color: #0a2530;
 }
-
 
 .pagination button:focus {
   display: flex;
@@ -298,7 +317,7 @@ select:focus {
   justify-content: center;
   border: 0px;
   border-radius: 8px;
-  background: #0A2530;
+  background: #0a2530;
   color: #fff;
 }
 .pagination .focused {
@@ -309,7 +328,7 @@ select:focus {
   justify-content: center;
   border: 0px;
   border-radius: 8px;
-  background: #0A2530;
+  background: #0a2530;
   color: #fff;
 }
 .retina-image {
@@ -320,7 +339,7 @@ select:focus {
   display: grid;
   align-items: center;
   color: rgb(197, 15, 15);
-  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-family: "Plus Jakarta Sans", sans-serif;
   grid-column: 1 / span 3;
   grid-template-columns: 1fr;
   justify-items: center;
@@ -370,8 +389,8 @@ select:focus {
   .search__artist input[type="text"] {
     width: 100%;
     height: 42px;
-    border: 1px solid #EDEEF0;
-    background: #FFF;
+    border: 1px solid #edeef0;
+    background: #fff;
     padding-block: 0px;
     padding-inline: 0px;
   }
@@ -389,31 +408,74 @@ select:focus {
     grid-template-columns: 1fr 1fr;
   }
 
-  .search__genre select, .search__decade select {
+  .search__genre select,
+  .search__decade select {
     width: 100%;
     max-width: none;
     box-sizing: border-box;
     padding: 10px;
-    border: 1px solid #EDEEF0;
-    background: #FFF;
-    color: var(--ink-light, #6C7072);
-}
+    border: 1px solid #edeef0;
+    background: #fff;
+    color: var(--ink-light, #6c7072);
+  }
 
   .item-list {
     display: grid;
     padding: 0px 20px 0px;
     grid-gap: 20px;
     grid-template-columns: repeat(2, 1fr);
-}
-.item {
+  }
+  .vinyl-card {
     display: flex;
     max-width: 300px;
     flex-direction: column;
     justify-content: space-between;
     margin: 0 auto;
-}
-
+  }
 }
 .item.hidden {
   display: none;
+}
+
+.vinyl-card__artist {
+  margin: 0px 0px 8px 0px;
+  color: #0a2530;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.vinyl-card__genres {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+  gap: 4px;
+}
+
+.vinyl-card__genres span {
+  display: inline-block;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #efeef0;
+  color: #0a2530;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.vinyl-card__release {
+  display: inline-flex;
+  margin-right: 4px;
+  margin-bottom: 4px;
+  gap: 4px;
+}
+
+.vinyl-card__release span {
+  display: inline-block;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #efeef0;
+  color: #0a2530;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
 }
