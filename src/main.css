@@ -243,7 +243,7 @@ select:focus {
   font-family: Plus Jakarta Sans, sans-serif;
   font-size: 14px;
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   line-height: normal;
 }
 .add-button {
@@ -450,15 +450,14 @@ select:focus {
 .vinyl-card__genres {
   display: inline-flex;
   flex-wrap: wrap;
-  margin-bottom: 8px;
+  margin-bottom: 0px;
   gap: 4px;
 }
 
 .vinyl-card__genres span {
   display: inline-block;
-  padding: 4px;
+  padding: 0px 4px;
   border-radius: 4px;
-  background-color: #efeef0;
   color: #0a2530;
   font-size: 14px;
   font-weight: 500;
@@ -466,17 +465,17 @@ select:focus {
 }
 
 .vinyl-card__release {
-  display: inline-flex;
+  display: flex;
+  flex-direction: column;
   margin-right: 4px;
-  margin-bottom: 4px;
-  gap: 4px;
+  margin-bottom: 0px;
+  gap: 0px 4px;
 }
 
 .vinyl-card__release span {
   display: inline-block;
-  padding: 4px;
+  padding: 0px 4px;
   border-radius: 4px;
-  background-color: #efeef0;
   color: #0a2530;
   font-size: 14px;
   font-weight: 500;

@@ -344,13 +344,18 @@ export const Application = () => {
               </p>
             </div>
             <div className="vinyl-card__release">
-              <span>{vinylCard.year}</span>
-              <span>{vinylCard.country}</span>
-            </div>
-            <div className="vinyl-card__genres">
-              {vinylCard.styles.map((style) => (
-                <span key={style}>{style}</span>
-              ))}
+              <p>
+                Year: <span>{vinylCard.year}</span>
+              </p>
+              <p>
+                Style:
+                {vinylCard.styles.map((style) => (
+                  <span key={style}>{style}</span>
+                ))}
+              </p>
+              <p>
+                Country: <span>{vinylCard.country}</span>
+              </p>
             </div>
           </div>
           <div className="vinyl-card__action">
