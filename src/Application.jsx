@@ -339,7 +339,9 @@ export const Application = () => {
             <div className="item-header">
               <h1 className="vinyl-card__title">{vinylCard.name}</h1>
               <h2 className="vinyl-card__artist">{vinylCard.artist}</h2>
-              <span>{vinylCardGenre.name}</span>
+              <p>
+                Genre: <span>{vinylCardGenre.name}</span>
+              </p>
             </div>
             <div className="vinyl-card__release">
               <span>{vinylCard.year}</span>
