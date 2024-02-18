@@ -202,6 +202,9 @@ select:focus {
   -ms-user-select: none;
   user-select: none;
 }
+.item{
+  display: flex;
+}
 .item-header {
   margin: 0px;
 }
@@ -374,7 +377,7 @@ select:focus {
   }
   .main {
     display: grid;
-    padding: 0px 0px 20px 0px;
+    padding: 20px 0px 20px 0px;
     grid-gap: 18px;
     grid-template-rows: auto auto;
   }
