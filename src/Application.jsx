@@ -398,6 +398,17 @@ export const Application = () => {
     );
   };
 
+  const renderPagination = () => {
+    return (
+      <div className="pagination" id="pagination-container">
+        <button id="page1">1</button>
+        <button id="page2">2</button>
+        <button id="page3">3</button>
+        <button id="page4">4</button>
+        <button id="page5">5</button>
+      </div>
+    );
+  };
   return (
     <>
       <div className="wrapper">
@@ -458,6 +469,7 @@ export const Application = () => {
           <div className="item-list" id="item-list">
             {vinylList.map(renderVinylCard)}
           </div>
+          <div className="footer">{renderPagination()}</div>
         </div>
       </div>
     </>
