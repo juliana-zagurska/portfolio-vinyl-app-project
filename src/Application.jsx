@@ -1,4 +1,414 @@
 export const Application = () => {
+  const collectionIds = [1, 2];
+  const favoriteIds = [1, 3, 4];
+
+  const vinylList = [
+    {
+      id: 1,
+      name: "Nothing's Gonna Hurt You Baby",
+      artist: "Cigarettes After Sex",
+      image: {
+        x1: "./src/assets/image1@1x.jpg",
+        x2: "./src/assets/image1@1x.jpg",
+      },
+      year: 2010,
+      country: "USA",
+      genreId: 3,
+      styles: ["Punk", "Dub", "Funk"],
+    },
+    {
+      id: 2,
+      name: "Let It Be",
+      artist: "The Beatles",
+      image: {
+        x1: "./src/assets/image2@1x.jpg",
+        x2: "./src/assets/image1@1x.jpg",
+      },
+      year: 1960,
+      country: "UK",
+      genreId: 5,
+      styles: ["Rock", "Dub", "Funk"],
+    },
+    {
+      id: 3,
+      name: "Paint The Town Red",
+      artist: "Doja Cat",
+      image: {
+        x1: "./src/assets/image3@1x.jpg",
+        x2: "./src/assets/image3@1x.jpg",
+      },
+      year: 2023,
+      country: "USA",
+      genreId: 4,
+      styles: ["Punk", "Dub", "Funk"],
+    },
+    {
+      id: 4,
+      name: "Who Let The Dogs Out",
+      artist: "Baha Men",
+      image: {
+        x1: "./src/assets/image4@1x.jpg",
+        x2: "./src/assets/image4@1x.jpg",
+      },
+      year: 2000,
+      country: "USA",
+      genreId: 4,
+      styles: ["House", "Ragga", "Hip-Hop"],
+    },
+    {
+      id: 5,
+      name: "U Can't touch this",
+      artist: "MC Hammer",
+      image: {
+        x1: "./src/assets/image5@1x.jpg",
+        x2: "./src/assets/image5@1x.jpg",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Rap", "Ragga", "Hip-Hop"],
+    },
+    {
+      id: 6,
+      name: "Ra-Ta-Ta",
+      artist: "Wencke Myhre",
+      image: {
+        x1: "./src/assets/image7@1x.jpg",
+        x2: "./src/assets/image7@1x.jpg",
+      },
+      year: 1970,
+      country: "Germany",
+      genreId: 4,
+      styles: ["Electronic", "Ragga", "Hip-Hop"],
+    },
+    {
+      id: 7,
+      name: "Let There Be Rock",
+      artist: "AC/DC",
+      image: {
+        x1: "./src/assets/image8@1x.jpg",
+        x2: "./src/assets/image8@1x.jpg",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Electronic", "Rock", "Hip-Hop"],
+    },
+    {
+      id: 8,
+      name: "Let There Be Rock",
+      artist: "AC/DC",
+      image: {
+        x1: "./src/assets/image9@1x.jpg",
+        x2: "./src/assets/image9@1x.jpg",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Electronic", "Rock", "Hip-Hop"],
+    },
+    {
+      id: 9,
+      name: "Let There Be Rock",
+      artist: "AC/DC",
+      image: {
+        x1: "./src/assets/image10@1x.jpg",
+        x2: "./src/assets/image10@1x.jpg",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Electronic", "Rock", "Hip-Hop"],
+    },
+    {
+      id: 10,
+      name: "Let There Be Rock",
+      artist: "AC/DC",
+      image: {
+        x1: "./src/assets/image11@1x.jpg",
+        x2: "./src/assets/image11@1x.jpg",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Electronic", "Rock", "Hip-Hop"],
+    },
+    {
+      id: 11,
+      name: "Let There Be Rock",
+      artist: "AC/DC",
+      image: {
+        x1: "./src/assets/image12@1x.jpg",
+        x2: "./src/assets/image12@1x.jpg",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Electronic", "Rock", "Hip-Hop"],
+    },
+    {
+      id: 12,
+      name: "Let There Be Rock",
+      artist: "AC/DC",
+      image: {
+        x1: "./src/assets/image13@1x.png",
+        x2: "./src/assets/image13@1x.png",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Electronic", "Rock", "Hip-Hop"],
+    },
+    {
+      id: 13,
+      name: "Let There Be Rock",
+      artist: "AC/DC",
+      image: {
+        x1: "./src/assets/image14@1x.jpg",
+        x2: "./src/assets/image14@1x.jpg",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Electronic", "Rock", "Hip-Hop"],
+    },
+    {
+      id: 14,
+      name: "Let There Be Rock",
+      artist: "AC/DC",
+      image: {
+        x1: "./src/assets/image15@1x.png",
+        x2: "./src/assets/image15@1x.png",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Electronic", "Rock", "Hip-Hop"],
+    },
+    {
+      id: 15,
+      name: "Let There Be Rock",
+      artist: "AC/DC",
+      image: {
+        x1: "./src/assets/image16@1x.png",
+        x2: "./src/assets/image16@1x.png",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Electronic", "Rock", "Hip-Hop"],
+    },
+    {
+      id: 16,
+      name: "Let There Be Rock",
+      artist: "AC/DC",
+      image: {
+        x1: "./src/assets/image17@1x.png",
+        x2: "./src/assets/image17@1x.png",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Electronic", "Rock", "Hip-Hop"],
+    },
+    {
+      id: 17,
+      name: "Let There Be Rock",
+      artist: "AC/DC",
+      image: {
+        x1: "./src/assets/image18@1x.png",
+        x2: "./src/assets/image18@1x.png",
+      },
+      year: 1990,
+      country: "USA",
+      genreId: 4,
+      styles: ["Electronic", "Rock", "Hip-Hop"],
+    },
+    {
+      id: 18,
+      name: "Nothing's Gonna Hurt You Baby",
+      artist: "Cigarettes After Sex",
+      image: {
+        x1: "./src/assets/image19@1x.jpg",
+        x2: "./src/assets/image19@1x.jpg",
+      },
+      year: 2010,
+      country: "USA",
+      genreId: 3,
+      styles: ["Punk", "Dub", "Funk"],
+    },
+  ];
+  const genres = [
+    {
+      id: 1,
+      name: "Jazz",
+      color: "#ffc3f3",
+      textTheme: "dark",
+    },
+    {
+      id: 2,
+      name: "Country",
+      color: "#ffa161",
+      textTheme: "light",
+    },
+    {
+      id: 3,
+      name: "Alternative",
+      color: "#ffa161",
+      textTheme: "light",
+    },
+    {
+      id: 4,
+      name: "Pop",
+      color: "#ffa161",
+      textTheme: "light",
+    },
+    {
+      id: 5,
+      name: "Rock",
+      color: "#ffa161",
+      textTheme: "light",
+    },
+  ];
+
+  const renderVinylCard = (vinylCard) => {
+    const vinylCardGenre = genres.find(
+      (genre) => genre.id === vinylCard.genreId
+    );
+
+    const inCollection = collectionIds.includes(vinylCard.id);
+    const inFavorites = favoriteIds.includes(vinylCard.id);
+    const toggleFavorite = () => {
+      console.error("Favorites not implemented", { value: vinylCard.id });
+    };
+    const addToCollection = () => {
+      console.error("Add to collection button not implemented", {
+        value: vinylCard.id,
+      });
+    };
+    return (
+      <div className="item" key={vinylCard.id}>
+        <div className="vinyl-card">
+          <div className="vinyl-card__cover">
+            <button className="fas fa-heart" onClick={toggleFavorite}>
+              {inFavorites ? (
+                <svg
+                  width="37"
+                  height="36"
+                  viewBox="0 0 37 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect
+                    x="0.14286"
+                    width="36"
+                    height="36"
+                    rx="4"
+                    fill="white"
+                  />
+                  <path
+                    d="M28.4286 15.4244C28.4286 21.2558 18.1429 27.4612 18.1429 27.4612C18.1429 27.4612 7.85715 21.2558 7.85715 15.4244C7.85715 7.50682 18.1429 7.61374 18.1429 14.582C18.1429 7.61374 28.4286 7.71798 28.4286 15.4244Z"
+                    fill="#FF4500"
+                  />
+                </svg>
+              ) : (
+                <svg
+                  width="36"
+                  height="36"
+                  viewBox="0 0 36 36"
+                  fill="none"
+                  xmlns="http://www.w3.org/2000/svg"
+                >
+                  <rect width="36" height="36" rx="4" fill="white" />
+                  <path
+                    d="M28.2857 15.4244C28.2857 21.2558 18 27.4612 18 27.4612C18 27.4612 7.71429 21.2558 7.71429 15.4244C7.71429 7.50682 18 7.61374 18 14.582C18 7.61374 28.2857 7.71798 28.2857 15.4244Z"
+                    stroke="#083644"
+                    strokeWidth="1.5"
+                    strokeLinejoin="round"
+                  />
+                </svg>
+              )}
+            </button>
+            <img
+              src={vinylCard.image.x1}
+              alt={vinylCard.name}
+              className="retina-image"
+            />
+          </div>
+          <div className="vinyl-card__content">
+            <div className="item-header">
+              <h1 className="vinyl-card__title">{vinylCard.name}</h1>
+              <h2 className="vinyl-card__artist">{vinylCard.artist}</h2>
+              <p>
+                Genre: <span>{vinylCardGenre.name}</span>
+              </p>
+            </div>
+            <div className="vinyl-card__release">
+              <p>
+                Year: <span>{vinylCard.year}</span>
+              </p>
+              <p>
+                Style:
+                {vinylCard.styles.map((style) => (
+                  <span key={style}>{style}</span>
+                ))}
+              </p>
+              <p>
+                Country: <span>{vinylCard.country}</span>
+              </p>
+            </div>
+          </div>
+          <div className="vinyl-card__action">
+            <button
+              className={
+                inCollection
+                  ? "button--active add-button"
+                  : "add-button--default add-button"
+              }
+              onClick={addToCollection}
+            >
+              <span className="button__label">
+                {inCollection ? "Added" : "Add"}
+              </span>
+              <span className="button__icon">
+                {inCollection ? (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 -960 960 960"
+                  >
+                    <path d="M378-258q-6 0-11-2t-10-7L176-448q-9-9-9-22t9-22q9-9 21-9t21 9l160 160 363-363q9-9 21.5-9t21.5 9q9 9 9 21.5t-9 21.5L399-267q-5 5-10 7t-11 2Z" />
+                  </svg>
+                ) : (
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="24"
+                    height="24"
+                    viewBox="0 -960 960 960"
+                  >
+                    <path d="M479.825-200Q467-200 458.5-208.625T450-230v-220H230q-12.75 0-21.375-8.675-8.625-8.676-8.625-21.5 0-12.825 8.625-21.325T230-510h220v-220q0-12.75 8.675-21.375 8.676-8.625 21.5-8.625 12.825 0 21.325 8.625T510-730v220h220q12.75 0 21.375 8.675 8.625 8.676 8.625 21.5 0 12.825-8.625 21.325T730-450H510v220q0 12.75-8.675 21.375-8.676 8.625-21.5 8.625Z" />
+                  </svg>
+                )}
+              </span>
+            </button>
+          </div>
+        </div>
+      </div>
+    );
+  };
+
+  const renderPagination = () => {
+    return (
+      <div className="pagination" id="pagination-container">
+        <button id="page1">1</button>
+        <button id="page2">2</button>
+        <button id="page3">3</button>
+        <button id="page4">4</button>
+        <button id="page5">5</button>
+      </div>
+    );
+  };
   return (
     <>
       <div className="wrapper">
@@ -57,651 +467,9 @@ export const Application = () => {
         </div>
         <div className="main">
           <div className="item-list" id="item-list">
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img
-                src="./src/assets/image1@1x.png"
-                alt="Item 1"
-                className="retina-image"
-              />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img
-                src="./src/assets/image2@1x.jpg"
-                alt="Item 2"
-                className="retina-image"
-              />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img src="./src/assets/image3@1x.jpg" alt="Item 3" />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img src="./src/assets/image4@1x.jpg" alt="Item 4" />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img src="./src/assets/image5@1x.jpg" alt="Item 5" />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img src="./src/assets/image6@1x.jpg" alt="Item 6" />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img src="./src/assets/image7@1x.jpg" alt="Item 7" />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img src="./src/assets/image8@1x.jpg" alt="Item 8" />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img src="./src/assets/image9@1x.jpg" alt="Item 9" />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img src="./src/assets/image10@1x.jpg" alt="Item 10" />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img src="./src/assets/image11@1x.jpg" alt="Item 11" />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
-            <div className="item">
-              <i className="fas fa-heart">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                >
-                  <rect width="24" height="24" rx="4" fill="white" />
-                  <path
-                    d="M19 10.6617C19 14.2167 12.5 17.9998 12.5 17.9998C12.5 17.9998 6 14.2167 6 10.6617C6 5.83488 12.5 5.90006 12.5 10.1481C12.5 5.90006 19 5.96361 19 10.6617Z"
-                    stroke="black"
-                    strokeWidth="1.10308"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-              </i>
-              <img src="./src/assets/image12@1x.jpg" alt="Item 12" />
-              <div className="item-header">
-                <h1>Let There Be Rock</h1>
-                <h2>AC/DC</h2>
-              </div>
-              <div className="item-text">
-                <p>
-                  Year : <span>1990</span>
-                </p>
-                <p>
-                  Style : <span>Punk, Dub, Funk</span>
-                </p>
-                <p>
-                  Country : <span>USA</span>
-                </p>
-              </div>
-              <button className="add-button">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="20"
-                  height="20"
-                  viewBox="0 0 20 20"
-                  fill="none"
-                >
-                  <path
-                    d="M10 16.6667V9.99999M10 9.99999V3.33333M10 9.99999H16.6667M10 9.99999H3.33334"
-                    stroke="white"
-                    strokeWidth="1.66667"
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                  />
-                </svg>
-                Add
-              </button>
-            </div>
+            {vinylList.map(renderVinylCard)}
           </div>
+          <div className="footer">{renderPagination()}</div>
         </div>
       </div>
     </>
