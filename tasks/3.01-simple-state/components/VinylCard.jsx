@@ -1,12 +1,14 @@
 import Button from "./Button.jsx";
+import { useState } from "react";
 
 import styles from "./VinylCard.module.css";
 
-function VinylCard({ vinyl }) {
-  const inCollection = false;
+function VinylCard({ vinyl, isInCollection, onAddToCollection }) {
+  const [inCollection, setInCollection] = useState(isInCollection);
 
   function handleCollectionButtonClick() {
-    // TODO: add to/remove from collection
+    setInCollection((prevInCollection) => !prevInCollection);
+    onAddToCollection(vinyl.id);
   }
 
   return (
