@@ -6,7 +6,7 @@ export const Counter = () => {
   const handleChange = (e) => {
     const newValue = e.target.value;
     setValue(newValue);
-    console.log('Current value:', newValue);
+    console.log("Current value:", newValue);
   };
 
   return (
