@@ -1,14 +1,10 @@
 import Button from "./Button.jsx";
-import { useState } from "react";
 
 import styles from "./VinylCard.module.css";
 
-function VinylCard({ vinyl, isInCollection, onAddToCollection }) {
-  const [inCollection, setInCollection] = useState(isInCollection);
-
+function VinylCard({ vinyl, isInCollection, onCollectionToggle }) {
   function handleCollectionButtonClick() {
-    setInCollection((prevInCollection) => !prevInCollection);
-    onAddToCollection(vinyl.id);
+    onCollectionToggle(vinyl.id);
   }
 
   return (
@@ -30,9 +26,9 @@ function VinylCard({ vinyl, isInCollection, onAddToCollection }) {
       <div className={styles.action}>
         <Button
           fullWidth
-          active={inCollection}
+          active={isInCollection}
           onClick={handleCollectionButtonClick}
-          label={inCollection ? "In collection" : "Add to collection"}
+          label={isInCollection ? "In collection" : "Add to collection"}
         />
       </div>
     </article>

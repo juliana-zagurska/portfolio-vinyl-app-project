@@ -47,7 +47,7 @@ function VinylList({ list }) {
             key={vinyl.id}
             vinyl={vinyl}
             isInCollection={collection.includes(vinyl.id)}
-            onAddToCollection={handleCollectionToggle}
+            onCollectionToggle={handleCollectionToggle}
           />
         ))}
       </div>
