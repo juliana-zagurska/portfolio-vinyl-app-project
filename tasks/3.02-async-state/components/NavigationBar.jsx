@@ -11,6 +11,7 @@ function NavigationBar() {
   const [searchValue, setSearchValue] = useState("");
   const [searchTab, setSearchTab] = useState("all");
   const [filteredSearchResults, setFilteredSearchResults] = useState([]);
+  const [timeoutId, setTimeoutId] = useState(null);
 
   const isAll = searchTab === "all";
   const isByArtist = searchTab === "artist";
@@ -29,8 +30,15 @@ function NavigationBar() {
   async function handleSearchInputChange(event) {
     const value = event.target.value;
     setSearchValue(value);
-    const results = await fetchSearchVinyl(value, searchTab);
-    setFilteredSearchResults(results);
+    if (timeoutId) clearTimeout(timeoutId);
+    const newTimeoutId = setTimeout(async () => {
+      const results = await fetchSearchVinyl(value, searchTab);
+      if (value === searchValue) {
+        setFilteredSearchResults(results);
+      }
+    }, 500);
+
+    setTimeoutId(newTimeoutId);
   }
 
   return (

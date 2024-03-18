@@ -17,47 +17,50 @@ import {
 function Vinyl({ vinyl }) {
   const [inWishlist, setInWishlist] = useState(false);
   const [inCollection, setInCollection] = useState(false);
+  const [isUpdatingCollection, setIsUpdatingCollection] = useState(false);
+  const [error, setError] = useState("");
   const [requestCount, setRequestCount] = useState(0);
 
   async function handleWishlistButtonClick() {
+    const wasInWishlist = inWishlist;
     setInWishlist(!inWishlist);
     setRequestCount(requestCount + 1);
-    if (inWishlist) {
-      try {
+
+    try {
+      if (wasInWishlist) {
         await fetchRemoveVinylFromWishlist(vinyl.id);
-        setRequestCount(requestCount - 1);
-        if (requestCount === 0) {
-          setInWishlist(!inWishlist);
-        }
-      } catch (error) {
-        setRequestCount(requestCount - 1);
-        if (requestCount === 0) {
-          setInWishlist(inWishlist);
-        }
-      }
-    } else {
-      try {
+      } else {
         await fetchAddVinylToWishlist(vinyl.id);
-        setRequestCount(requestCount - 1);
-        if (requestCount === 0) {
-          setInWishlist(!inWishlist);
-        }
-      } catch (error) {
-        setRequestCount(requestCount - 1);
-        if (requestCount === 0) {
-          setInWishlist(inWishlist);
-        }
+      }
+    } catch (error) {
+      console.error("Failed to update wishlist status on the server", error);
+      setInWishlist(wasInWishlist);
+    } finally {
+      setRequestCount((prevCount) => prevCount - 1);
+      if (requestCount - 1 === 0 && !wasInWishlist) {
+        setInWishlist(false);
       }
     }
   }
 
   async function handleAddToCollection() {
-    if (inCollection) {
-      await fetchRemoveVinylFromCollection(vinyl.id);
-    } else {
-      await fetchAddVinylToCollection(vinyl.id);
+    if (isUpdatingCollection) return;
+
+    setIsUpdatingCollection(true);
+
+    try {
+      if (inCollection) {
+        await fetchRemoveVinylFromCollection(vinyl.id);
+      } else {
+        await fetchAddVinylToCollection(vinyl.id);
+      }
+      setInCollection(!inCollection);
+    } catch (error) {
+      setError("Помилка при виконанні запиту. Будь ласка, спробуйте знову.");
+      console.error(error);
     }
-    setInCollection((inCollection) => !inCollection);
+
+    setIsUpdatingCollection(false);
   }
 
   return (
@@ -91,6 +94,7 @@ function Vinyl({ vinyl }) {
           </div>
         </div>
       </div>
+      {error && <div style={{ color: "red" }}>{error}</div>}
       <div className={styles.action}>
         <Button
           fullWidth
