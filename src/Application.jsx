@@ -1,296 +1,47 @@
-export const Application = () => {
-  const collectionIds = [1, 2];
-  const favoriteIds = [1, 3, 4];
+import { useState } from "react";
+import { getVinylCards, getGenres } from "./data";
 
-  const vinylList = [
-    {
-      id: 1,
-      name: "Nothing's Gonna Hurt You Baby",
-      artist: "Cigarettes After Sex",
-      image: {
-        x1: "./src/assets/image1@1x.jpg",
-        x2: "./src/assets/image1@1x.jpg",
-      },
-      year: 2010,
-      country: "USA",
-      genreId: 3,
-      styles: ["Punk", "Dub", "Funk"],
-    },
-    {
-      id: 2,
-      name: "Let It Be",
-      artist: "The Beatles",
-      image: {
-        x1: "./src/assets/image2@1x.jpg",
-        x2: "./src/assets/image1@1x.jpg",
-      },
-      year: 1960,
-      country: "UK",
-      genreId: 5,
-      styles: ["Rock", "Dub", "Funk"],
-    },
-    {
-      id: 3,
-      name: "Paint The Town Red",
-      artist: "Doja Cat",
-      image: {
-        x1: "./src/assets/image3@1x.jpg",
-        x2: "./src/assets/image3@1x.jpg",
-      },
-      year: 2023,
-      country: "USA",
-      genreId: 4,
-      styles: ["Punk", "Dub", "Funk"],
-    },
-    {
-      id: 4,
-      name: "Who Let The Dogs Out",
-      artist: "Baha Men",
-      image: {
-        x1: "./src/assets/image4@1x.jpg",
-        x2: "./src/assets/image4@1x.jpg",
-      },
-      year: 2000,
-      country: "USA",
-      genreId: 4,
-      styles: ["House", "Ragga", "Hip-Hop"],
-    },
-    {
-      id: 5,
-      name: "U Can't touch this",
-      artist: "MC Hammer",
-      image: {
-        x1: "./src/assets/image5@1x.jpg",
-        x2: "./src/assets/image5@1x.jpg",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Rap", "Ragga", "Hip-Hop"],
-    },
-    {
-      id: 6,
-      name: "Ra-Ta-Ta",
-      artist: "Wencke Myhre",
-      image: {
-        x1: "./src/assets/image7@1x.jpg",
-        x2: "./src/assets/image7@1x.jpg",
-      },
-      year: 1970,
-      country: "Germany",
-      genreId: 4,
-      styles: ["Electronic", "Ragga", "Hip-Hop"],
-    },
-    {
-      id: 7,
-      name: "Let There Be Rock",
-      artist: "AC/DC",
-      image: {
-        x1: "./src/assets/image8@1x.jpg",
-        x2: "./src/assets/image8@1x.jpg",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Electronic", "Rock", "Hip-Hop"],
-    },
-    {
-      id: 8,
-      name: "Let There Be Rock",
-      artist: "AC/DC",
-      image: {
-        x1: "./src/assets/image9@1x.jpg",
-        x2: "./src/assets/image9@1x.jpg",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Electronic", "Rock", "Hip-Hop"],
-    },
-    {
-      id: 9,
-      name: "Let There Be Rock",
-      artist: "AC/DC",
-      image: {
-        x1: "./src/assets/image10@1x.jpg",
-        x2: "./src/assets/image10@1x.jpg",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Electronic", "Rock", "Hip-Hop"],
-    },
-    {
-      id: 10,
-      name: "Let There Be Rock",
-      artist: "AC/DC",
-      image: {
-        x1: "./src/assets/image11@1x.jpg",
-        x2: "./src/assets/image11@1x.jpg",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Electronic", "Rock", "Hip-Hop"],
-    },
-    {
-      id: 11,
-      name: "Let There Be Rock",
-      artist: "AC/DC",
-      image: {
-        x1: "./src/assets/image12@1x.jpg",
-        x2: "./src/assets/image12@1x.jpg",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Electronic", "Rock", "Hip-Hop"],
-    },
-    {
-      id: 12,
-      name: "Let There Be Rock",
-      artist: "AC/DC",
-      image: {
-        x1: "./src/assets/image13@1x.png",
-        x2: "./src/assets/image13@1x.png",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Electronic", "Rock", "Hip-Hop"],
-    },
-    {
-      id: 13,
-      name: "Let There Be Rock",
-      artist: "AC/DC",
-      image: {
-        x1: "./src/assets/image14@1x.jpg",
-        x2: "./src/assets/image14@1x.jpg",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Electronic", "Rock", "Hip-Hop"],
-    },
-    {
-      id: 14,
-      name: "Let There Be Rock",
-      artist: "AC/DC",
-      image: {
-        x1: "./src/assets/image15@1x.png",
-        x2: "./src/assets/image15@1x.png",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Electronic", "Rock", "Hip-Hop"],
-    },
-    {
-      id: 15,
-      name: "Let There Be Rock",
-      artist: "AC/DC",
-      image: {
-        x1: "./src/assets/image16@1x.png",
-        x2: "./src/assets/image16@1x.png",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Electronic", "Rock", "Hip-Hop"],
-    },
-    {
-      id: 16,
-      name: "Let There Be Rock",
-      artist: "AC/DC",
-      image: {
-        x1: "./src/assets/image17@1x.png",
-        x2: "./src/assets/image17@1x.png",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Electronic", "Rock", "Hip-Hop"],
-    },
-    {
-      id: 17,
-      name: "Let There Be Rock",
-      artist: "AC/DC",
-      image: {
-        x1: "./src/assets/image18@1x.png",
-        x2: "./src/assets/image18@1x.png",
-      },
-      year: 1990,
-      country: "USA",
-      genreId: 4,
-      styles: ["Electronic", "Rock", "Hip-Hop"],
-    },
-    {
-      id: 18,
-      name: "Nothing's Gonna Hurt You Baby",
-      artist: "Cigarettes After Sex",
-      image: {
-        x1: "./src/assets/image19@1x.jpg",
-        x2: "./src/assets/image19@1x.jpg",
-      },
-      year: 2010,
-      country: "USA",
-      genreId: 3,
-      styles: ["Punk", "Dub", "Funk"],
-    },
-  ];
-  const genres = [
-    {
-      id: 1,
-      name: "Jazz",
-      color: "#ffc3f3",
-      textTheme: "dark",
-    },
-    {
-      id: 2,
-      name: "Country",
-      color: "#ffa161",
-      textTheme: "light",
-    },
-    {
-      id: 3,
-      name: "Alternative",
-      color: "#ffa161",
-      textTheme: "light",
-    },
-    {
-      id: 4,
-      name: "Pop",
-      color: "#ffa161",
-      textTheme: "light",
-    },
-    {
-      id: 5,
-      name: "Rock",
-      color: "#ffa161",
-      textTheme: "light",
-    },
-  ];
+export const Application = () => {
+  const [collection, setCollection] = useState([]);
+  const [wishlist, setWishlist] = useState([]);
+  const [page, setPage] = useState(1);
+
+  const vinylList = getVinylCards();
+  const genres = getGenres();
+  const cardsPerPage = 6;
+  const pagesCount = Math.min(Math.ceil(vinylList.length / cardsPerPage), 5);
+
+  function handleCollectionToggle(vinylId) {
+    setCollection(
+      collection.includes(vinylId)
+        ? collection.filter((id) => id !== vinylId)
+        : [...collection, vinylId]
+    );
+  }
+
+  function handleWishlistToggle(vinylId) {
+    setWishlist(
+      wishlist.includes(vinylId)
+        ? wishlist.filter((id) => id !== vinylId)
+        : [...wishlist, vinylId]
+    );
+  }
 
   const renderVinylCard = (vinylCard) => {
     const vinylCardGenre = genres.find(
       (genre) => genre.id === vinylCard.genreId
     );
 
-    const inCollection = collectionIds.includes(vinylCard.id);
-    const inFavorites = favoriteIds.includes(vinylCard.id);
-    const toggleFavorite = () => {
-      console.error("Favorites not implemented", { value: vinylCard.id });
-    };
-    const addToCollection = () => {
-      console.error("Add to collection button not implemented", {
-        value: vinylCard.id,
-      });
-    };
+    const inCollection = collection.includes(vinylCard.id);
+    const inFavorites = wishlist.includes(vinylCard.id);
     return (
       <div className="item" key={vinylCard.id}>
         <div className="vinyl-card">
           <div className="vinyl-card__cover">
-            <button className="fas fa-heart" onClick={toggleFavorite}>
+            <button
+              className="fas fa-heart"
+              onClick={() => handleWishlistToggle(vinylCard.id)}
+            >
               {inFavorites ? (
                 <svg
                   width="37"
@@ -365,7 +116,7 @@ export const Application = () => {
                   ? "button--active add-button"
                   : "add-button--default add-button"
               }
-              onClick={addToCollection}
+              onClick={() => handleCollectionToggle(vinylCard.id)}
             >
               <span className="button__label">
                 {inCollection ? "Added" : "Add"}
@@ -401,11 +152,17 @@ export const Application = () => {
   const renderPagination = () => {
     return (
       <div className="pagination" id="pagination-container">
-        <button id="page1">1</button>
-        <button id="page2">2</button>
-        <button id="page3">3</button>
-        <button id="page4">4</button>
-        <button id="page5">5</button>
+        {Array.from({ length: pagesCount }).map((_, index) => (
+          <div
+            key={index}
+            className={"pagination-button"}
+            onClick={() => setPage(index + 1)}
+            role="button"
+            tabIndex={0}
+          >
+            {index + 1}
+          </div>
+        ))}
       </div>
     );
   };
@@ -434,40 +191,49 @@ export const Application = () => {
             </button>
           </div>
           <div className="icons">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M21 9.32647C21 14.4974 12 20 12 20C12 20 3 14.4974 3 9.32647C3 2.30564 12 2.40044 12 8.57947C12 2.40044 21 2.49288 21 9.32647Z"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinejoin="round"
-              />
-            </svg>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="24"
-              height="24"
-              viewBox="0 0 24 24"
-              fill="none"
-            >
-              <path
-                d="M21 18.2222V9.33333C21 8.86184 20.8104 8.40965 20.4728 8.07625C20.1352 7.74286 19.6774 7.55556 19.2 7.55556H13.1124C12.7781 7.55554 12.4503 7.46356 12.1659 7.28992C11.8816 7.11628 11.6518 6.86783 11.5023 6.57244L10.6977 4.98311C10.5482 4.68759 10.3182 4.43906 10.0337 4.2654C9.74912 4.09175 9.4212 3.99985 9.0867 4H4.8C4.32261 4 3.86477 4.1873 3.52721 4.5207C3.18964 4.8541 3 5.30628 3 5.77778V18.2222C3 18.6937 3.18964 19.1459 3.52721 19.4793C3.86477 19.8127 4.32261 20 4.8 20H19.2C19.6774 20 20.1352 19.8127 20.4728 19.4793C20.8104 19.1459 21 18.6937 21 18.2222Z"
-                stroke="white"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
+            <div className="icon-with-counter">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M21 9.32647C21 14.4974 12 20 12 20C12 20 3 14.4974 3 9.32647C3 2.30564 12 2.40044 12 8.57947C12 2.40044 21 2.49288 21 9.32647Z"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="counter">{wishlist.length}</span>
+            </div>
+
+            <div className="icon-with-counter">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="24"
+                height="24"
+                viewBox="0 0 24 24"
+                fill="none"
+              >
+                <path
+                  d="M21 18.2222V9.33333C21 8.86184 20.8104 8.40965 20.4728 8.07625C20.1352 7.74286 19.6774 7.55556 19.2 7.55556H13.1124C12.7781 7.55554 12.4503 7.46356 12.1659 7.28992C11.8816 7.11628 11.6518 6.86783 11.5023 6.57244L10.6977 4.98311C10.5482 4.68759 10.3182 4.43906 10.0337 4.2654C9.74912 4.09175 9.4212 3.99985 9.0867 4H4.8C4.32261 4 3.86477 4.1873 3.52721 4.5207C3.18964 4.8541 3 5.30628 3 5.77778V18.2222C3 18.6937 3.18964 19.1459 3.52721 19.4793C3.86477 19.8127 4.32261 20 4.8 20H19.2C19.6774 20 20.1352 19.8127 20.4728 19.4793C20.8104 19.1459 21 18.6937 21 18.2222Z"
+                  stroke="white"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+              <span className="counter">{collection.length}</span>
+            </div>
           </div>
         </div>
         <div className="main">
           <div className="item-list" id="item-list">
-            {vinylList.map(renderVinylCard)}
+            {vinylList
+              .slice((page - 1) * cardsPerPage, page * cardsPerPage)
+              .map(renderVinylCard)}
           </div>
           <div className="footer">{renderPagination()}</div>
         </div>
