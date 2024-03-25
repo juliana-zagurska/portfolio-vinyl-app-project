@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { getVinylCards, getGenres } from "./data";
+import { useVinylList } from "./hooks/useVinylList";
+import { useGenres } from "./hooks/useGenres";
 
 export const Application = () => {
   const [collection, setCollection] = useState([]);
   const [wishlist, setWishlist] = useState([]);
   const [page, setPage] = useState(1);
 
-  const vinylList = getVinylCards();
-  const genres = getGenres();
+  const vinylList = useVinylList();
+  const genres = useGenres();
   const cardsPerPage = 6;
   const pagesCount = Math.min(Math.ceil(vinylList.length / cardsPerPage), 5);
 
