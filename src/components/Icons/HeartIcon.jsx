@@ -9,14 +9,19 @@ export const HeartIcon = ({ size = 24, color, isActive }) => (
     height={size}
     className={styles.icons}
     fill={isActive ? "#FF4500" : color}
-    viewBox="0 0 24 24"
+    viewBox="0 0 37 36"
   >
-    <path
-      d="M21 9.32647C21 14.4974 12 20 12 20C12 20 3 14.4974 3 9.32647C3 2.30564 12 2.40044 12 8.57947C12 2.40044 21 2.49288 21 9.32647Z"
-      stroke="white"
-      strokeWidth="2"
-      strokeLinejoin="round"
-    />
+    <rect x="0.14286" width="36" height="36" rx="4" fill="white" />
+    {isActive ? (
+      <path d="M28.4286 15.4244C28.4286 21.2558 18.1429 27.4612 18.1429 27.4612C18.1429 27.4612 7.85715 21.2558 7.85715 15.4244C7.85715 7.50682 18.1429 7.61374 18.1429 14.582C18.1429 7.61374 28.4286 7.71798 28.4286 15.4244Z" />
+    ) : (
+      <path
+        d="M28.2857 15.4244C28.2857 21.2558 18 27.4612 18 27.4612C18 27.4612 7.71429 21.2558 7.71429 15.4244C7.71429 7.50682 18 7.61374 18 14.582C18 7.61374 28.2857 7.71798 28.2857 15.4244Z"
+        stroke="#083644"
+        strokeWidth="1.5"
+        strokeLinejoin="round"
+      />
+    )}
   </svg>
 );
 HeartIcon.propTypes = {
