@@ -1,12 +1,17 @@
 import { useState } from "react";
+import { Header } from "./components/Header";
 import { useVinylList } from "./hooks/useVinylList";
+import { useCollection } from "./hooks/useCollection";
 import { useGenres } from "./hooks/useGenres";
 import { HeartIcon } from "./components/Icons/HeartIcon";
+import { BackIcon } from "./components/Icons/BackIcon";
 import { FolderIcon } from "./components/Icons/FolderIcon";
 import { Pagination } from "./components/Pagination";
 
 export const Application = () => {
-  const [collection, setCollection] = useState([]);
+  const [collection1, setCollection] = useState([]);
+  const { collection, toggleCollection } = useCollection();
+  //const [wishlist, handleWishlistToggle] = useWishList();
   const [wishlist, setWishlist] = useState([]);
   const [page, setPage] = useState(1);
 
@@ -17,9 +22,9 @@ export const Application = () => {
 
   function handleCollectionToggle(vinylId) {
     setCollection(
-      collection.includes(vinylId)
-        ? collection.filter((id) => id !== vinylId)
-        : [...collection, vinylId]
+      collection1.includes(vinylId)
+        ? collection1.filter((id) => id !== vinylId)
+        : [...collection1, vinylId]
     );
   }
 
@@ -120,66 +125,11 @@ export const Application = () => {
   return (
     <>
       <div className="wrapper">
-        <div className="header">
-          <div className="navigation">
-            <button className="back-button" id="go-back">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M15 18L9 12L15 6"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              BACK
-            </button>
-          </div>
-          <div className="icons">
-            <div className="icon-with-counter">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M21 9.32647C21 14.4974 12 20 12 20C12 20 3 14.4974 3 9.32647C3 2.30564 12 2.40044 12 8.57947C12 2.40044 21 2.49288 21 9.32647Z"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="counter">{wishlist.length}</span>
-            </div>
-
-            <div className="icon-with-counter">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-              >
-                <path
-                  d="M21 18.2222V9.33333C21 8.86184 20.8104 8.40965 20.4728 8.07625C20.1352 7.74286 19.6774 7.55556 19.2 7.55556H13.1124C12.7781 7.55554 12.4503 7.46356 12.1659 7.28992C11.8816 7.11628 11.6518 6.86783 11.5023 6.57244L10.6977 4.98311C10.5482 4.68759 10.3182 4.43906 10.0337 4.2654C9.74912 4.09175 9.4212 3.99985 9.0867 4H4.8C4.32261 4 3.86477 4.1873 3.52721 4.5207C3.18964 4.8541 3 5.30628 3 5.77778V18.2222C3 18.6937 3.18964 19.1459 3.52721 19.4793C3.86477 19.8127 4.32261 20 4.8 20H19.2C19.6774 20 20.1352 19.8127 20.4728 19.4793C20.8104 19.1459 21 18.6937 21 18.2222Z"
-                  stroke="white"
-                  strokeWidth="2"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                />
-              </svg>
-              <span className="counter">{collection.length}</span>
-            </div>
-          </div>
-        </div>
+        <Header
+          collectionSize={collection.length}
+          wishlistSize={wishlist.length}
+          vinylList={vinylList}
+        />
         <div className="main">
           <div className="item-list" id="item-list">
             {vinylList
