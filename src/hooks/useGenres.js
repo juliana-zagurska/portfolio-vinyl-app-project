@@ -4,31 +4,31 @@ export const useGenres = () => {
   const [genres] = useState([
     {
       id: 1,
-      name: "Jazz",
+      title: "Jazz",
       color: "#ffc3f3",
       textTheme: "dark",
     },
     {
       id: 2,
-      name: "Country",
+      title: "Country",
       color: "#ffa161",
       textTheme: "light",
     },
     {
       id: 3,
-      name: "Alternative",
+      title: "Alternative",
       color: "#ffa161",
       textTheme: "light",
     },
     {
       id: 4,
-      name: "Pop",
+      title: "Pop",
       color: "#ffa161",
       textTheme: "light",
     },
     {
       id: 5,
-      name: "Rock",
+      title: "Rock",
       color: "#ffa161",
       textTheme: "light",
     },

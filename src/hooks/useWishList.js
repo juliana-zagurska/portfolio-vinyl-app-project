@@ -1,14 +1,14 @@
 import { useState } from "react";
 
-export const useWishList = () => {
-  const [wishlist, setWishList] = useState([]);
+export const useWishlist = () => {
+  const [wishlist, setWishlist] = useState([]);
 
-  function handleWishlistToggle(vinylId) {
-    setWishList((wishlist) =>
+  function toggleWishlist(vinylId) {
+    setWishlist((wishlist) =>
       wishlist.includes(vinylId)
         ? wishlist.filter((id) => id !== vinylId)
         : [...wishlist, vinylId]
     );
   }
-  return { wishlist, handleWishlistToggle };
+  return { wishlist, toggleWishlist };
 };
