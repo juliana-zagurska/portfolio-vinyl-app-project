@@ -13,24 +13,28 @@ export const VinylCard = ({
   return (
     <div className={styles.item} key={vinyl.id}>
       <div className={styles.vinylCard}>
-        <div className="vinyl-card__cover">
+        <div className={styles.vinylCard__cover}>
           <button
-            className="fas fa-heart"
+            className={styles.faHeart}
             onClick={() => onWishlistToggle(vinyl.id)}
           >
             <HeartIcon isActive={inWishlist} color={"#fff"}></HeartIcon>
           </button>
-          <img src={vinyl.image.x1} alt={vinyl.name} className="retina-image" />
+          <img
+            src={vinyl.image.x1}
+            alt={vinyl.name}
+            className={styles.retinaImage}
+          />
         </div>
-        <div className="vinyl-card__content">
-          <div className="item-header">
-            <h1 className="vinyl-card__title">{vinyl.name}</h1>
-            <h2 className="vinyl-card__artist">{vinyl.artist}</h2>
+        <div className={styles.vinylCard__content}>
+          <div className={styles.itemHeader}>
+            <h1 className={styles.vinylCard__title}>{vinyl.name}</h1>
+            <h2 className={styles.vinylCard__artist}>{vinyl.artist}</h2>
             <p>
-              Genre: <span>{vinyl.title}</span>
+              Name: <span>{vinyl.title}</span>
             </p>
           </div>
-          <div className="vinyl-card__release">
+          <div className={styles.vinylCard__release}>
             <p>
               Year: <span>{vinyl.year}</span>
             </p>
@@ -45,7 +49,7 @@ export const VinylCard = ({
             </p>
           </div>
         </div>
-        <div className="vinyl-card__action">
+        <div className={styles.vinylCard__action}>
           <div className={styles.collectionButton}>
             <CollectionButton
               onClick={() => onCollectionToggle(vinyl.id)}

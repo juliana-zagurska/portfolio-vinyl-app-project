@@ -283,8 +283,8 @@ export const useVinylList = () => {
 
       return {
         ...vinyl,
-        country: countryObj ? countryObj.title : "Unknown Country", // Use a default or a placeholder
-        genre: genreObj ? genreObj : { id: null, name: "Unknown Genre" }, // Handle unknown genres similarly
+        country: countryObj ? countryObj.title : "Unknown Country",
+        genre: genreObj ? genreObj : { id: null, name: "Unknown Genre" },
       };
     })
   );

@@ -3,7 +3,7 @@ import { Header } from "./components/Header";
 import { useVinylList } from "./hooks/useVinylList";
 import { useCollection } from "./hooks/useCollection";
 import { useWishlist } from "./hooks/useWishList";
-import { VinylCard } from "./components/VinylCard/VinylCard.jsx";
+import { VinylCard } from "./components/VinylCard";
 import { Pagination } from "./components/Pagination";
 
 export const Application = () => {

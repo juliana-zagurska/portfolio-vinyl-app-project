@@ -6,7 +6,7 @@
 .item{
   display: flex;
 }
-.item-header {
+.itemHeader {
   margin: 0px;
 }
 .item-text-data {
@@ -63,6 +63,22 @@
   font-weight: 500;
   line-height: normal;
 }
+.vinylCard__artist {
+  margin: 0px 0px 8px 0px;
+  color: #0a2530;
+  font-size: 14px;
+  font-weight: 500;
+}
+.faHeart {
+  position: absolute;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.retinaImage {
+  display: block;
+}
 @media (max-width: 767px) {
   .item-list {
     display: grid;
@@ -77,4 +93,21 @@
     justify-content: space-between;
     margin: 0 auto;
   }
+}
+.vinylCard__release {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4px;
+  margin-bottom: 0px;
+  gap: 0px 4px;
+}
+
+.vinylCard__release span {
+  display: inline-block;
+  padding: 0px 4px;
+  border-radius: 4px;
+  color: #0a2530;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
 }
