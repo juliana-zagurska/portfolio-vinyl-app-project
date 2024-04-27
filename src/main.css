@@ -190,62 +190,6 @@ select:focus {
   fill: black;
 }
 
-.vinyl-card img {
-  width: 100%;
-  height: auto;
-  border-radius: 15px;
-  pointer-events: none;
-
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-.item{
-  display: flex;
-}
-.item-header {
-  margin: 0px;
-}
-.item-text-data {
-  margin: 7px 0px 0px;
-}
-.vinyl-card h1 {
-  margin: 8px 0px 3px;
-  color: #0a2530;
-  font-family: Plus Jakarta Sans, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 700;
-  line-height: normal;
-}
-.vinyl-card h2 {
-  margin: 0px 0px 8px;
-  color: #0a2530;
-  font-family: Plus Jakarta Sans, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
-.vinyl-card p {
-  margin: 0px 0px 3px;
-  color: #738286;
-  font-family: Plus Jakarta Sans, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 400;
-  line-height: normal;
-}
-.vinyl-card__content span {
-  color: #0a2530;
-  font-family: Plus Jakarta Sans, sans-serif;
-  font-size: 14px;
-  font-style: normal;
-  font-weight: 500;
-  line-height: normal;
-}
 .add-button {
   display: flex;
   width: 100%;

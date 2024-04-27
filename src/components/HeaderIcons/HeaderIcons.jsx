@@ -9,8 +9,8 @@ export const HeaderIcons = ({
   ...props
 }) => {
   return (
-    <div className="icons">
-      <div className="icon-with-counter">
+    <div className={styles.icons}>
+      <div className={styles.iconCounter}>
         <button
           className={`${styles.root} ${
             variant === "white" ? styles.isWhite : ""

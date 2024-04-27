@@ -10,7 +10,7 @@ export const VinylCard = ({
   onWishlistToggle,
 }) => {
   return (
-    <div className="item" key={vinyl.id}>
+    <div className={styles.item} key={vinyl.id}>
       <div className={styles.vinylCard}>
         <div className="vinyl-card__cover">
           <button
@@ -26,7 +26,7 @@ export const VinylCard = ({
             <h1 className="vinyl-card__title">{vinyl.name}</h1>
             <h2 className="vinyl-card__artist">{vinyl.artist}</h2>
             <p>
-              Genre: <span>{vinyl.name}</span>
+              Genre: <span>{vinyl.title}</span>
             </p>
           </div>
           <div className="vinyl-card__release">

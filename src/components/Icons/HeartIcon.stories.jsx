@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-unresolved
-import { HeartIcon } from "./HeartIcon";
+import { HeartIcon } from "./HeartIcon.jsx";
 
 export default {
   title: "HeartIcon",

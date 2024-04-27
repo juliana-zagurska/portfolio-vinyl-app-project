@@ -3,7 +3,15 @@
   grid-gap: 20px;
   grid-template-columns: repeat(3, 1fr);
 }
-
+.item{
+  display: flex;
+}
+.item-header {
+  margin: 0px;
+}
+.item-text-data {
+  margin: 7px 0px 0px;
+}
 .vinylCard{
   display: grid;
   width: 100%;
@@ -19,4 +27,54 @@
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+}
+.vinylCard h1 {
+  margin: 8px 0px 3px;
+  color: #0a2530;
+  font-family: Plus Jakarta Sans, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.vinylCard h2 {
+  margin: 0px 0px 8px;
+  color: #0a2530;
+  font-family: Plus Jakarta Sans, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.vinylCard p {
+  margin: 0px 0px 3px;
+  color: #738286;
+  font-family: Plus Jakarta Sans, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.vinylCard__content span {
+  color: #0a2530;
+  font-family: Plus Jakarta Sans, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+@media (max-width: 767px) {
+  .item-list {
+    display: grid;
+    padding: 0px 20px 0px;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .vinyl-card {
+    display: flex;
+    max-width: 300px;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
 }

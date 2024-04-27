@@ -1,4 +1,11 @@
-.icon-with-counter {
+.icons {
+  justify-self: end;
+}
+
+.icons svg:first-child {
+  margin-right: 18px;
+}
+.iconCounter {
   position: relative;
   display: inline-block;
 }
@@ -40,7 +47,7 @@
 
 .root.isWhite {
   background-color: #fff;
-  color: #000;
+  color: #fff;
 }
 
 .root.isSmall {
@@ -67,3 +74,10 @@
   line-height: 1;
   text-align: center;
 }
+
+/* Mobile styles */
+@media (max-width: 767px) {
+  /* Additional styles for mobile devices */
+  .icons {
+    justify-self: end;
+  }}
