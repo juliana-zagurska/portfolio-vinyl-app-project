@@ -24,7 +24,7 @@ export const Application = () => {
           vinylList={vinylList}
         />
         <div className="main">
-          <div className="item-list" id="item-list">
+          <div className="item-list">
             {vinylList
               .slice((page - 1) * cardsPerPage, page * cardsPerPage)
               .map((vinyl) => (
@@ -39,7 +39,6 @@ export const Application = () => {
               ))}
           </div>
           <Pagination
-            className="footer"
             pagesCount={pagesCount}
             currentPage={page}
             onPageChange={setPage}

@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 import { HeaderLayout } from "./HeaderLayout.jsx";
-import { HeaderIcons } from "../HeaderIcons";
+import { HeaderIcon } from "../HeaderIcon";
 import { HeartIcon } from "../Icons/HeartIcon.jsx";
 import { FolderIcon } from "../Icons/FolderIcon.jsx";
 
@@ -8,12 +8,12 @@ export const Header = ({ collectionSize, wishlistSize }) => {
   return (
     <HeaderLayout
       menu={[
-        <HeaderIcons
+        <HeaderIcon
           icon={<HeartIcon />}
           key={"wishlist"}
           count={wishlistSize}
         />,
-        <HeaderIcons
+        <HeaderIcon
           icon={<FolderIcon />}
           key={"collection"}
           count={collectionSize}

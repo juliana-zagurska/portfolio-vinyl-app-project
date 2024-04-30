@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import styles from "./HeaderIcons.module.css";
+import styles from "./HeaderIcon.module.css";
 
 export const HeaderIcon = ({
   icon,
@@ -25,7 +25,7 @@ export const HeaderIcon = ({
   );
 };
 
-HeaderIcons.propTypes = {
+HeaderIcon.propTypes = {
   icon: PropTypes.node.isRequired,
   variant: PropTypes.oneOf(["white", "default"]),
   isSmall: PropTypes.bool,

@@ -27,40 +27,6 @@ html {
   grid-template-rows: auto 1fr auto; /* Header, main content, footer */
 }
 
-/* Header styles */
-.header {
-  display: grid;
-  align-items: center;
-  padding: 17px 20px;
-  background-color: #083644;
-  color: #fff;
-  grid-template-columns: auto 1fr auto;
-}
-
-.icons {
-  justify-self: end;
-}
-
-.back-button svg {
-  width: 24px;
-  height: 24px;
-}
-
-.icons svg:first-child {
-  margin-right: 18px;
-}
-
-.back-button {
-  display: flex;
-  align-items: center;
-  padding: 0px;
-  border: none;
-  background-color: #083644;
-  color: white;
-  cursor: pointer;
-  gap: 6px;
-}
-
 /* Main content styles */
 .main {
   display: grid;
@@ -175,61 +141,6 @@ select:focus {
   grid-template-columns: repeat(3, 1fr);
 }
 
-.vinyl-card{
-  display: grid;
-  width: 100%;
-}
-.fa-heart {
-  position: absolute;
-  padding: 10px;
-  border: none;
-  background-color: transparent;
-  cursor: pointer;
-}
-.filled path {
-  fill: black;
-}
-
-.add-button {
-  display: flex;
-  width: 100%;
-  height: 44px;
-  align-items: center;
-  justify-content: center;
-  padding: 0px;
-  border: none;
-  border-radius: 4px;
-  margin: 8px 0px 0px;
-  cursor: pointer;
-  font-family: Plus Jakarta Sans, sans-serif;
-  font-size: 16px;
-  font-style: normal;
-  font-weight: 500;
-  gap: 6px;
-  line-height: normal;
-}
-.add-button--default {
-  background-color: #0a2530;
-  color: #fff;
-}
-.add-button:hover {
-  background-color: #05141a;
-}
-
-.add-button.button--active {
-  background-color: #efeef0;
-  color: #05141a;
-}
-.add-button:active {
-  background-color: #05141a;
-  transform: scale(0.98);
-  transform-origin: 50% 50%;
-}
-.button__icon {
-  flex: 0 0 auto;
-  fill: currentColor;
-  line-height: 1;
-}
 /* Footer styles */
 .footer {
   padding: 0px 20px 36px 20px;
@@ -238,46 +149,6 @@ select:focus {
   text-align: center;
 }
 
-.pagination {
-  display: flex;
-  justify-content: center;
-  gap: 0px;
-}
-
-.pagination-button {
-  display: flex;
-  width: 40px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  border: 0px;
-  border-radius: 8px;
-  background: #fff;
-  color: #0a2530;
-}
-
-.pagination-button:focus {
-  display: flex;
-  width: 40px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  border: 0px;
-  border-radius: 8px;
-  background: #0a2530;
-  color: #fff;
-}
-.pagination .focused {
-  display: flex;
-  width: 40px;
-  height: 40px;
-  align-items: center;
-  justify-content: center;
-  border: 0px;
-  border-radius: 8px;
-  background: #0a2530;
-  color: #fff;
-}
 .retina-image {
   display: block;
 }
@@ -309,30 +180,6 @@ select:focus {
 /* Mobile styles */
 @media (max-width: 767px) {
   /* Additional styles for mobile devices */
-  .header {
-    display: grid;
-    height: 62px;
-    align-items: center;
-    padding: 0px;
-    background-color: #083644;
-    color: #fff;
-    grid-template-columns: auto 1fr auto;
-  }
-
-  .icons {
-    padding: 0px 20px 0px 0px;
-    justify-self: end;
-  }
-  .back-button {
-    display: flex;
-    align-items: center;
-    padding: 0px 0px 0px 20px;
-    border: none;
-    background-color: #083644;
-    color: white;
-    cursor: pointer;
-    gap: 6px;
-  }
   .main {
     display: grid;
     padding: 20px 0px 20px 0px;
@@ -386,56 +233,6 @@ select:focus {
     grid-gap: 20px;
     grid-template-columns: repeat(2, 1fr);
   }
-  .vinyl-card {
-    display: flex;
-    max-width: 300px;
-    flex-direction: column;
-    justify-content: space-between;
-    margin: 0 auto;
-  }
-}
-.item.hidden {
-  display: none;
+
 }
 
-.vinyl-card__artist {
-  margin: 0px 0px 8px 0px;
-  color: #0a2530;
-  font-size: 14px;
-  font-weight: 500;
-}
-
-.vinyl-card__genres {
-  display: inline-flex;
-  flex-wrap: wrap;
-  margin-bottom: 0px;
-  gap: 4px;
-}
-
-.vinyl-card__genres span {
-  display: inline-block;
-  padding: 0px 4px;
-  border-radius: 4px;
-  color: #0a2530;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-}
-
-.vinyl-card__release {
-  display: flex;
-  flex-direction: column;
-  margin-right: 4px;
-  margin-bottom: 0px;
-  gap: 0px 4px;
-}
-
-.vinyl-card__release span {
-  display: inline-block;
-  padding: 0px 4px;
-  border-radius: 4px;
-  color: #0a2530;
-  font-size: 14px;
-  font-weight: 500;
-  line-height: 1;
-}
