@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import styles from "./HeaderIcons.module.css";
 
-export const HeaderIcons = ({
+export const HeaderIcon = ({
   icon,
   variant = "default",
   isSmall,
