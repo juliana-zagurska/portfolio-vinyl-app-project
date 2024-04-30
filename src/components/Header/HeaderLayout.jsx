@@ -6,7 +6,7 @@ export const HeaderLayout = ({ menu }) => {
   return (
     <div className={styles.header}>
       <div className={styles.navigation}>
-        <button className="back-button" id="go-back">
+        <button className={styles.backButton} id="go-back">
           <BackIcon />
           BACK
         </button>
