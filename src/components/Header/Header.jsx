@@ -26,5 +26,4 @@ export const Header = ({ collectionSize, wishlistSize }) => {
 Header.propTypes = {
   collectionSize: PropTypes.number.isRequired,
   wishlistSize: PropTypes.number.isRequired,
-  vinylList: PropTypes.array.isRequired,
 };
