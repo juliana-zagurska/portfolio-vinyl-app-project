@@ -1,0 +1,27 @@
+/* Header styles */
+.header {
+  align-items: center;
+  padding: 17px 20px;
+  background-color: #083644;
+  color: #fff;
+}
+.navigation {
+  display: grid;
+  align-items: center;
+  grid-template-columns: auto 1fr auto;
+}
+.backButton svg {
+  width: 24px;
+  height: 24px;
+}
+
+.backButton {
+  display: flex;
+  align-items: center;
+  padding: 0px;
+  border: none;
+  background-color: #083644;
+  color: white;
+  cursor: pointer;
+  gap: 6px;
+}
