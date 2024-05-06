@@ -1,9 +1,9 @@
 import { useState } from "react";
-import { useVinylList } from "../../../hooks/useVinylList";
-import { useCollection } from "../../../hooks/useCollection";
-import { useWishlist } from "../../../hooks/useWishList";
-import { VinylCard } from "../../VinylCard";
-import { Pagination } from "../../Pagination";
+import { useVinylList } from "../../hooks/useVinylList";
+import { useCollection } from "../../hooks/useCollection";
+import { useWishlist } from "../../hooks/useWishList";
+import { VinylCard } from "../../components/VinylCard";
+import { Pagination } from "../../components/Pagination";
 
 export const HomePage = () => {
   const { collection, toggleCollection } = useCollection();

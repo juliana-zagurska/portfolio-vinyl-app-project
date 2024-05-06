@@ -5,7 +5,7 @@ import { useCollection } from "./hooks/useCollection";
 import { useWishlist } from "./hooks/useWishList";
 import { VinylCard } from "./components/VinylCard";
 import { Pagination } from "./components/Pagination";
-import { HomePage } from "./components/Pages/HomePage";
+import { HomePage } from "./Pages/HomePage";
 
 export const Application = () => {
   const { collection, toggleCollection } = useCollection();
