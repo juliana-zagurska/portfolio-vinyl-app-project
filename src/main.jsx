@@ -14,30 +14,7 @@ import { HomePage } from "./Pages/HomePage/HomePage.jsx";
 
 const appElement = document.getElementById("app");
 const root = createRoot(appElement);
-/*
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Application />,
-    children: [
-      {
-        path: "search",
-        element: <NewSearchPage />,
-        children: [
-          {
-            index: true,
-            element: <NewSearchPage />,
-          },
-        ],
-      },
-      {
-        path: "*",
-        element: <div>Not found</div>,
-      },
-    ],
-  },
-]);
-*/
+
 /*
 const router = createBrowserRouter([
   {
@@ -113,10 +90,3 @@ root.render(
     </HelmetProvider>
   </StrictMode>
 );
-/*
-root.render(
-  <StrictMode>
-    <Application />
-  </StrictMode>
-);
-*/

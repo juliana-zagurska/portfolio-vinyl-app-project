@@ -12,6 +12,7 @@
 }
 
 .resetButton {
+  margin: 0px 20px;
   cursor: pointer;
   font-size: 14px;
   font-weight: 400;
