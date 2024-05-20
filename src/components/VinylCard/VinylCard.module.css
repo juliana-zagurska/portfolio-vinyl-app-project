@@ -1,0 +1,109 @@
+
+.item{
+  display: flex;
+}
+.itemHeader {
+  margin: 0px;
+}
+.item-text-data {
+  margin: 7px 0px 0px;
+}
+.vinylCard{
+  display: grid;
+  width: 100%;
+}
+.vinylCard img {
+  width: 100%;
+  height: auto;
+  border-radius: 15px;
+  pointer-events: none;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.vinylCard h1 {
+  margin: 8px 0px 3px;
+  color: #0a2530;
+  font-family: Plus Jakarta Sans, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.vinylCard h2 {
+  margin: 0px 0px 8px;
+  color: #0a2530;
+  font-family: Plus Jakarta Sans, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.vinylCard p {
+  margin: 0px 0px 3px;
+  color: #738286;
+  font-family: Plus Jakarta Sans, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+.vinylCard__content span {
+  color: #0a2530;
+  font-family: Plus Jakarta Sans, sans-serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: normal;
+}
+.vinylCard__artist {
+  margin: 0px 0px 8px 0px;
+  color: #0a2530;
+  font-size: 14px;
+  font-weight: 500;
+}
+.faHeart {
+  position: absolute;
+  padding: 10px;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+.retinaImage {
+  display: block;
+}
+@media (max-width: 767px) {
+  .item-list {
+    display: grid;
+    padding: 0px 20px 0px;
+    grid-gap: 20px;
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .vinyl-card {
+    display: flex;
+    max-width: 300px;
+    flex-direction: column;
+    justify-content: space-between;
+    margin: 0 auto;
+  }
+}
+.vinylCard__release {
+  display: flex;
+  flex-direction: column;
+  margin-right: 4px;
+  margin-bottom: 0px;
+  gap: 0px 4px;
+}
+
+.vinylCard__release span {
+  display: inline-block;
+  padding: 0px 4px;
+  border-radius: 4px;
+  color: #0a2530;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 1;
+}

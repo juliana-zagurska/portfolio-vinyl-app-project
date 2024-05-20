@@ -1,0 +1,10 @@
+.icons {
+  justify-self: end;
+}
+.icons svg:first-child {
+  margin-right: 18px;
+}
+.icon {
+  color: inherit;
+  fill: currentColor;
+}
