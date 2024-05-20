@@ -25,3 +25,25 @@
   cursor: pointer;
   gap: 6px;
 }
+.root {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 10px 16px;
+  background-color: #083644;
+  gap: 8px;
+}
+
+.search {
+  flex: 1 1 auto;
+}
+
+.menu {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.back {
+  flex: 0 0 auto;
+}
