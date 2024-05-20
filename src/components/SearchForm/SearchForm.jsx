@@ -5,6 +5,7 @@ import { useDecadeList } from "../../hooks/useDecadeList.js";
 import { useGenres } from "../../hooks/useGenres.js";
 import { Button } from "../Button/index.js";
 import { useState } from "react";
+import { useForm } from "react-hook-form";
 
 export const SearchForm = ({ onSubmit }) => {
   const genres = useGenres();
