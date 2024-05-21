@@ -20,7 +20,6 @@ export const MultiSelect = ({
     value.includes(option.value)
   );
 
-  // Dynamically create className with template literals based on conditions
   const buttonClasses = `${styles.root} ${isOpened ? styles.isActive : ""} ${
     error ? styles.isError : ""
   }`;

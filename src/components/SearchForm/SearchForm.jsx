@@ -1,10 +1,9 @@
-import * as Yup from "yup";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import PropTypes from "prop-types";
 
 import styles from "./SearchForm.module.css";
-
+import { formSchema } from "./formSchema.js";
 import { useCountryList } from "../../hooks/useCountryList.js";
 import { useDecadeList } from "../../hooks/useDecadeList.js";
 import { useGenres } from "../../hooks/useGenres.js";
@@ -13,13 +12,6 @@ import { Button } from "../Button/index.js";
 import { MultiSelect } from "../Form/MultiSelect";
 import { TextInput } from "../Form/TextInput";
 import { Select } from "../Form/Select/index.js";
-
-const formSchema = Yup.object({
-  artist: Yup.string().optional().min(2).max(10),
-  country: Yup.string(),
-  genres: Yup.array().of(Yup.string()),
-  decades: Yup.array().of(Yup.number()),
-});
 
 export const SearchForm = ({
   onSubmit,
@@ -85,11 +77,11 @@ export const SearchForm = ({
             <MultiSelect
               {...field}
               options={decadeList.map((decade) => ({
-                value: `${decade.from}-${decade.to}`,
+                value: decade.from,
                 label: decade.title,
               }))}
               ref={null}
-              error={errors.genres?.message}
+              error={errors.decade?.message}
               placeholder="Decade"
             />
           )}
