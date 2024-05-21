@@ -1,37 +1,50 @@
+import * as Yup from "yup";
+import { useForm, Controller } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
 import PropTypes from "prop-types";
+
 import styles from "./SearchForm.module.css";
+
 import { useCountryList } from "../../hooks/useCountryList.js";
 import { useDecadeList } from "../../hooks/useDecadeList.js";
 import { useGenres } from "../../hooks/useGenres.js";
+import { emptyFilters } from "../../utils/filters.js";
 import { Button } from "../Button/index.js";
-import { useState } from "react";
-import { useForm } from "react-hook-form";
+import { MultiSelect } from "../Form/MultiSelect";
+import { TextInput } from "../Form/TextInput";
+import { Select } from "../Form/Select/index.js";
 
-export const SearchForm = ({ onSubmit }) => {
-  const genres = useGenres();
+const formSchema = Yup.object({
+  artist: Yup.string().optional().min(2).max(10),
+  country: Yup.string(),
+  genres: Yup.array().of(Yup.string()),
+  decades: Yup.array().of(Yup.number()),
+});
+
+export const SearchForm = ({
+  onSubmit,
+  onError,
+  defaultValues = emptyFilters,
+}) => {
+  const genreList = useGenres();
   const decadeList = useDecadeList();
   const countryList = useCountryList();
 
-  const [filters, setFilters] = useState({
-    artist: "",
-    genres: [],
-    decades: [],
-    country: "",
+  const {
+    handleSubmit,
+    register,
+    control,
+    getValues,
+    watch,
+    formState: { errors },
+    reset,
+  } = useForm({
+    defaultValues,
+    resolver: yupResolver(formSchema),
   });
+  watch();
 
-  const handleFilterChange = (name, value) => {
-    setFilters((filters) => ({
-      ...filters,
-      [name]: value,
-    }));
-  };
-
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    onSubmit(filters);
-  };
-
-  const isFiltersEmpty = Object.values(filters).every((value) =>
+  const isFiltersEmpty = Object.values(getValues()).every((value) =>
     Array.isArray(value) ? !value?.length : !value
   );
 
@@ -40,63 +53,81 @@ export const SearchForm = ({ onSubmit }) => {
   const twoColumnsClass = styles.twoColumns;
 
   return (
-    <form className={rootClass} onSubmit={handleSubmit}>
-      <input
+    <form className={rootClass} onSubmit={handleSubmit(onSubmit, onError)}>
+      <TextInput
         className={inputClass}
-        type="text"
-        name="artist"
         placeholder="Artist"
-        value={filters.artist}
-        onChange={(event) => handleFilterChange("artist", event.target.value)}
+        {...register("artist")}
+        error={errors.artist?.message}
       />
 
       <div className={twoColumnsClass}>
-        <select
-          name="genre"
-          onChange={(event) =>
-            handleFilterChange("genres", [event.target.value])
-          }
-        >
-          <option value="option-0">Genre</option>
-          {genres.map((genre) => (
-            <option key={genre.title} value={genre.id}>
-              {genre.title}
-            </option>
-          ))}
-        </select>
-        <select
-          name="decade"
-          className={`${styles.select} ${styles.decade}`}
-          onChange={(event) =>
-            handleFilterChange("decades", [event.target.value])
-          }
-        >
-          <option value="option-0">Decade</option>
-          {decadeList.map((decade) => (
-            <option key={decade.title} value={decade.from}>
-              {decade.from}
-            </option>
-          ))}
-        </select>
-        <select
+        <Controller
+          control={control}
+          name="genres"
+          render={({ field }) => (
+            <MultiSelect
+              {...field}
+              options={genreList.map((genre) => ({
+                value: genre.id,
+                label: genre.title,
+              }))}
+              ref={null}
+              error={errors.genres?.message}
+              placeholder="Genre"
+            />
+          )}
+        />
+        <Controller
+          control={control}
+          name="decades"
+          render={({ field }) => (
+            <MultiSelect
+              {...field}
+              options={decadeList.map((decade) => ({
+                value: `${decade.from}-${decade.to}`,
+                label: decade.title,
+              }))}
+              ref={null}
+              error={errors.genres?.message}
+              placeholder="Decade"
+            />
+          )}
+        />
+        <Controller
+          control={control}
           name="country"
-          className={`${styles.select} ${styles.country}`}
-          onChange={(event) =>
-            handleFilterChange("country", event.target.value)
-          }
-          value={filters.country}
-        >
-          <option value="option-0">Country</option>
-          {countryList.map((country) => (
-            <option key={country.title} value={country.id}>
-              {country.title}
-            </option>
-          ))}
-        </select>
+          render={({ field }) => (
+            <Select
+              {...field}
+              options={countryList.map((country) => ({
+                value: country.id,
+                label: country.title,
+              }))}
+              ref={null}
+              error={errors.genres?.message}
+              placeholder="Country"
+            />
+          )}
+        />
       </div>
 
-      <Button type="submit" isFullWidth disabled={isFiltersEmpty}>
+      <Button
+        variant="primary"
+        type="submit"
+        isFullWidth
+        disabled={isFiltersEmpty}
+        onSubmit={onSubmit}
+      >
         Search
+      </Button>
+      <Button
+        variant="secondary"
+        type="button"
+        disabled={isFiltersEmpty}
+        onClick={() => reset()}
+      >
+        Reset
       </Button>
     </form>
   );
@@ -104,4 +135,11 @@ export const SearchForm = ({ onSubmit }) => {
 
 SearchForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
+  onError: PropTypes.func,
+  defaultValues: PropTypes.shape({
+    artist: PropTypes.string,
+    genres: PropTypes.arrayOf(PropTypes.number),
+    decade: PropTypes.string,
+    country: PropTypes.string,
+  }),
 };

@@ -1,8 +1,8 @@
 import PropTypes from "prop-types";
 import styles from "./Select.module.css";
 import { useState } from "react";
-import { ArrowUpIcon } from "../../Icons/ArrowDownIcon.jsx";
-import { ArrowDownIcon } from "../../Icons/ArrowUpIcon.jsx";
+import { ArrowUpIcon } from "../../Icons/ArrowUpIcon.jsx";
+import { ArrowDownIcon } from "../../Icons/ArrowDownIcon.jsx";
 
 export const Select = ({
   value,

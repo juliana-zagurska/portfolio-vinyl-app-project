@@ -1,5 +1,5 @@
-import { ArrowUpIcon } from "../../Icons/ArrowDownIcon.jsx";
-import { ArrowDownIcon } from "../../Icons/ArrowUpIcon.jsx";
+import { ArrowUpIcon } from "../../Icons/ArrowUpIcon.jsx";
+import { ArrowDownIcon } from "../../Icons/ArrowDownIcon.jsx";
 import { Checkbox } from "../Checkbox";
 import styles from "./MultiSelect.module.css";
 import PropTypes from "prop-types";
