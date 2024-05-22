@@ -12,31 +12,14 @@ import { SearchLayout } from "./layouts/SearchLayout.jsx";
 import { SearchResultsPage } from "./Pages/SearchResultsPage/SearchResultsPage.jsx";
 import { HomePage } from "./Pages/HomePage/HomePage.jsx";
 
+async function bootstrap() {
+  //if (import.meta.env.DEV) {
+  const { worker } = await import("./mocks/browser.js");
+  worker.start;
+  //}
+}
 const appElement = document.getElementById("app");
 const root = createRoot(appElement);
-
-/*
-const router = createBrowserRouter([
-  {
-    path: "/",
-    element: <Application />,
-    children: [
-      {
-        index: true,
-        element: <HomePage />,
-      },
-      {
-        path: "search/results",
-        element: <NewSearchPage />,
-      },
-      {
-        path: "*",
-        element: <div>Not found</div>,
-      },
-    ],
-  },
-]);
-*/
 const router = createBrowserRouter([
   {
     path: "/",
@@ -76,17 +59,13 @@ const router = createBrowserRouter([
     ],
   },
 ]);
-/*
-root.render(
-  <StrictMode>
-    <RouterProvider router={router} />
-  </StrictMode>
-);
-*/
-root.render(
-  <StrictMode>
-    <HelmetProvider>
-      <RouterProvider router={router} />
-    </HelmetProvider>
-  </StrictMode>
-);
+
+bootstrap().then(() => {
+  root.render(
+    <StrictMode>
+      <HelmetProvider>
+        <RouterProvider router={router} />
+      </HelmetProvider>
+    </StrictMode>
+  );
+});
