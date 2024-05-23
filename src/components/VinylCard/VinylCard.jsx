@@ -13,7 +13,6 @@ export const VinylCard = ({
 }) => {
   return (
     <motion.div
-      /*animate={{ y: 10 }}*/
       initial={{
         opacity: 0,
         y: 10,
@@ -33,12 +32,16 @@ export const VinylCard = ({
     >
       <div className={styles.vinylCard}>
         <div className={styles.vinylCard__cover}>
-          <button
+          <motion.button
+            animate={{
+              scale: inWishlist ? 1.2 : 0.9,
+            }}
+            button
             className={styles.faHeart}
             onClick={() => onWishlistToggle(vinyl.id)}
           >
             <HeartIcon isActive={inWishlist} color={"#fff"}></HeartIcon>
-          </button>
+          </motion.button>
           <img
             src={vinyl.image}
             alt={vinyl.name}
@@ -69,12 +72,20 @@ export const VinylCard = ({
           </div>
         </div>
         <div className={styles.vinylCard__action}>
-          <div className={styles.collectionButton}>
+          <motion.div
+            whileTap={{
+              scale: 0.5,
+            }}
+            transition={{
+              duration: 0.1,
+            }}
+            className={styles.collectionButton}
+          >
             <CollectionButton
               onClick={() => onCollectionToggle(vinyl.id)}
               isActive={inCollection}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
     </motion.div>
