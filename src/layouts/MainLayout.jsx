@@ -1,14 +1,17 @@
 import { Outlet, useOutletContext } from "react-router-dom";
 import { Header } from "../components/Header";
-import { useVinylList } from "../hooks/useVinylList";
 import { Helmet } from "react-helmet-async";
+import { ErrorBoundary } from "react-error-boundary";
+import { Loader } from "../components/Loader/index.js";
+import { Suspense } from "react";
+import { useVinylList } from "../hooks/useVinylList";
+import { Error } from "../components/Error/index.js";
 
 export const MainLayout = () => {
   const { collection, wishlist, toggleCollection, toggleWishlist } =
     useOutletContext();
 
   const vinylList = useVinylList();
-
   return (
     <>
       <Helmet>
@@ -20,9 +23,13 @@ export const MainLayout = () => {
         vinylList={vinylList}
         type="search"
       />
-      <Outlet
-        context={{ collection, wishlist, toggleCollection, toggleWishlist }}
-      />
+      <Suspense fallback={<Loader />}>
+        <ErrorBoundary FallbackComponent={Error}>
+          <Outlet
+            context={{ collection, wishlist, toggleCollection, toggleWishlist }}
+          />
+        </ErrorBoundary>
+      </Suspense>
     </>
   );
 };

@@ -21,7 +21,7 @@ export const VinylCard = ({
             <HeartIcon isActive={inWishlist} color={"#fff"}></HeartIcon>
           </button>
           <img
-            src={vinyl.image.x1}
+            src={vinyl.image}
             alt={vinyl.name}
             className={styles.retinaImage}
           />
@@ -45,7 +45,7 @@ export const VinylCard = ({
               ))}
             </p>
             <p>
-              Country: <span>{vinyl.country}</span>
+              Country: <span>{vinyl.country.title}</span>
             </p>
           </div>
         </div>

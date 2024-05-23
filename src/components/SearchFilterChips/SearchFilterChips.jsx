@@ -1,14 +1,24 @@
 import PropTypes from "prop-types";
-import { useCountryList } from "../../hooks/useCountryList";
 import { useDecadeList } from "../../hooks/useDecadeList";
 import styles from "./SearchFilterChips.module.css";
 import { SearchFilterChip } from "./SearchFilterChip.jsx";
+import { useCountryListAsync } from "../../hooks/useCountryListAsync.js";
+import { Loader } from "../Loader/index.js";
+import { useGenreListAsync } from "../../hooks/useGenreListAsync.js";
 
 export const SearchFilterChips = ({ filters, onFiltersChange }) => {
   const decadeList = useDecadeList();
-  const countryList = useCountryList();
+  const countryListQuery = useCountryListAsync();
+  const genreListQuery = useGenreListAsync();
 
-  const country = countryList.find((item) => item.id === filters.country);
+  if (countryListQuery.isLoading || genreListQuery.isLoading) {
+    return <Loader />;
+  }
+
+  const country = (countryListQuery.data || []).find(
+    (item) => item.id === filters.country
+  );
+  const decade = decadeList.find((item) => item.from === filters.decade);
 
   function handleRemove(name) {
     onFiltersChange({ ...filters, [name]: "" });
@@ -29,25 +39,34 @@ export const SearchFilterChips = ({ filters, onFiltersChange }) => {
           onRemove={() => handleRemove("artist")}
         />
       )}
-
-      {Boolean(filters.decades?.length) && (
+      {Boolean(filters.genres?.length) && (
         <>
-          {filters.decades.map((from) => {
-            const decade = decadeList.find((item) => item.from === from);
+          {filters.genres.map((genreId) => {
+            const genre = (genreListQuery.data || []).find(
+              (item) => item.id === genreId
+            );
 
-            if (!decade) {
+            if (!genre) {
               return null;
             }
 
             return (
               <SearchFilterChip
-                key={decade.from}
-                label={decade.title}
-                onRemove={() => handleArrayRemove("decades", from)}
+                key={genre.id}
+                label={genre.title}
+                onRemove={() => handleArrayRemove("genres", genreId)}
               />
             );
           })}
         </>
+      )}
+
+      {decade && (
+        <SearchFilterChip
+          key={decade.from}
+          label={decade.title}
+          onRemove={() => handleRemove("decade")}
+        />
       )}
 
       {country && (
@@ -63,7 +82,8 @@ export const SearchFilterChips = ({ filters, onFiltersChange }) => {
 SearchFilterChips.propTypes = {
   filters: PropTypes.shape({
     artist: PropTypes.string,
-    decades: PropTypes.arrayOf(PropTypes.number),
+    genres: PropTypes.arrayOf(PropTypes.number),
+    decade: PropTypes.number,
     country: PropTypes.string,
   }),
   onFiltersChange: PropTypes.func,

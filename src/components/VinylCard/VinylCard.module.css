@@ -73,7 +73,7 @@
   cursor: pointer;
 }
 .retinaImage {
-  display: block;
+  display: flex;
 }
 @media (max-width: 767px) {
   .item-list {

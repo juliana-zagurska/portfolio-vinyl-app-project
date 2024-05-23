@@ -18,6 +18,6 @@ export const formSchema = Yup.object({
       }
     ),
   genres: Yup.array().max(3, "You can select up to 3 genres"),
-  decade: Yup.string().max(3, "You can select up to 3 decades"),
+  decade: Yup.string().required("You can select up to 1 decade"),
   country: Yup.string(),
 });
