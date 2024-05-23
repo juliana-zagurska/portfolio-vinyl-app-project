@@ -1,7 +1,6 @@
-import { VinylList } from "../../components/VinylList";
+import { VinylList } from "../../components/VinylList/index.js";
 import { VinylCard } from "../../components/VinylCard/index.js";
 import { Pagination } from "../../components/Pagination/index.js";
-import { useFilteredVinylList } from "../../hooks/useFilteredVinylList.js";
 import { SearchFilterChips } from "../../components/SearchFilterChips";
 import styles from "./SearchResultsPage.module.css";
 import { Navigate, useOutletContext, useSearchParams } from "react-router-dom";
@@ -10,8 +9,10 @@ import {
   getFiltersFromParams,
   getSearchParamsFromFilters,
 } from "../../utils/filters.js";
+import { useFilteredVinylListAsync } from "../../hooks/useFilteredVinylListAsync.js";
+import { Loader } from "../../components/Loader/index.js";
 
-const CARDS_PER_PAGE = 8;
+const CARDS_PER_PAGE = 6;
 
 export const SearchResultsPage = () => {
   const [params, setParams] = useSearchParams(emptyFilters);
@@ -23,7 +24,10 @@ export const SearchResultsPage = () => {
 
   const page = Number(params.get("page")) || 1;
 
-  const vinylList = useFilteredVinylList(filters);
+  const vinylListQuery = useFilteredVinylListAsync(filters, {
+    limit: CARDS_PER_PAGE,
+    offset: (page - 1) * CARDS_PER_PAGE,
+  });
 
   const setFilters = (filters) =>
     setParams(getSearchParamsFromFilters(filters));
@@ -38,7 +42,7 @@ export const SearchResultsPage = () => {
     setParams(nextParams);
   };
 
-  const pagesCount = Math.min(Math.ceil(vinylList.length / CARDS_PER_PAGE), 5);
+  const pagesCount = Math.ceil(vinylListQuery.total / CARDS_PER_PAGE);
 
   const isFiltersEmpty = Object.values(filters).every((value) =>
     Array.isArray(value) ? !value?.length : !value
@@ -64,10 +68,11 @@ export const SearchResultsPage = () => {
 
       <SearchFilterChips filters={filters} onFiltersChange={setFilters} />
 
-      <VinylList isOnlyCards>
-        {vinylList
-          .slice((page - 1) * CARDS_PER_PAGE, page * CARDS_PER_PAGE)
-          .map((vinyl) => (
+      {vinylListQuery.isLoading ? (
+        <Loader />
+      ) : (
+        <VinylList isOnlyCards>
+          {vinylListQuery.results.map((vinyl) => (
             <VinylCard
               key={vinyl.id}
               inCollection={collection.includes(vinyl.id)}
@@ -77,7 +82,8 @@ export const SearchResultsPage = () => {
               inWishlist={wishlist.includes(vinyl.id)}
             />
           ))}
-      </VinylList>
+        </VinylList>
+      )}
 
       <Pagination
         pagesCount={pagesCount}

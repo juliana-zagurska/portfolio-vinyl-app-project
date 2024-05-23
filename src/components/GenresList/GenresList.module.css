@@ -1,0 +1,10 @@
+.root {
+  padding: 0 16px;
+  margin: 0 -16px;
+  overflow-y: auto;
+}
+
+.inner {
+  display: inline-flex;
+  gap: 12px;
+}

@@ -4,23 +4,24 @@ import PropTypes from "prop-types";
 
 import styles from "./SearchForm.module.css";
 import { formSchema } from "./formSchema.js";
-import { useCountryList } from "../../hooks/useCountryList.js";
 import { useDecadeList } from "../../hooks/useDecadeList.js";
-import { useGenres } from "../../hooks/useGenres.js";
 import { emptyFilters } from "../../utils/filters.js";
 import { Button } from "../Button/index.js";
 import { MultiSelect } from "../Form/MultiSelect";
 import { TextInput } from "../Form/TextInput";
 import { Select } from "../Form/Select/index.js";
+import { useGenreListAsync } from "../../hooks/useGenreListAsync.js";
+import { Loader } from "../Loader/Loader.jsx";
+import { useCountryListAsync } from "../../hooks/useCountryListAsync.js";
 
 export const SearchForm = ({
   onSubmit,
   onError,
   defaultValues = emptyFilters,
 }) => {
-  const genreList = useGenres();
   const decadeList = useDecadeList();
-  const countryList = useCountryList();
+  const countryListQuery = useCountryListAsync();
+  const genreListQuery = useGenreListAsync();
 
   const {
     handleSubmit,
@@ -39,6 +40,10 @@ export const SearchForm = ({
   const isFiltersEmpty = Object.values(getValues()).every((value) =>
     Array.isArray(value) ? !value?.length : !value
   );
+
+  if (genreListQuery.isLoading || countryListQuery.isLoading) {
+    return <Loader />;
+  }
 
   const inputClass = styles.input;
   const rootClass = styles.root;
@@ -60,7 +65,7 @@ export const SearchForm = ({
           render={({ field }) => (
             <MultiSelect
               {...field}
-              options={genreList.map((genre) => ({
+              options={genreListQuery.data.map((genre) => ({
                 value: genre.id,
                 label: genre.title,
               }))}
@@ -72,9 +77,9 @@ export const SearchForm = ({
         />
         <Controller
           control={control}
-          name="decades"
+          name="decade"
           render={({ field }) => (
-            <MultiSelect
+            <Select
               {...field}
               options={decadeList.map((decade) => ({
                 value: decade.from,
@@ -92,7 +97,7 @@ export const SearchForm = ({
           render={({ field }) => (
             <Select
               {...field}
-              options={countryList.map((country) => ({
+              options={countryListQuery.data.map((country) => ({
                 value: country.id,
                 label: country.title,
               }))}
@@ -128,10 +133,5 @@ export const SearchForm = ({
 SearchForm.propTypes = {
   onSubmit: PropTypes.func.isRequired,
   onError: PropTypes.func,
-  defaultValues: PropTypes.shape({
-    artist: PropTypes.string,
-    genres: PropTypes.arrayOf(PropTypes.number),
-    decade: PropTypes.string,
-    country: PropTypes.string,
-  }),
+  defaultValues: PropTypes.object,
 };
