@@ -1,10 +1,13 @@
-import { useCollection } from "./hooks/useCollection";
-import { useWishlist } from "./hooks/useWishList";
+import { useCollection } from "./hooks/useCollection.js";
+import { useWishlist } from "./hooks/useWishList.js";
 import { Outlet } from "react-router-dom";
+import { useNotifications } from "./hooks/useNotifications.js";
+import { Notifications } from "./components/Notifications";
 
 export const Application = () => {
-  const { collection, toggleCollection } = useCollection();
-  const { wishlist, toggleWishlist } = useWishlist();
+  const { addNotification, notifications } = useNotifications();
+  const { collection, toggleCollection } = useCollection(addNotification);
+  const { wishlist, toggleWishlist } = useWishlist(addNotification);
   return (
     <>
       <div className="wrapper">
@@ -16,6 +19,7 @@ export const Application = () => {
             toggleWishlist,
           }}
         />
+        <Notifications notifications={notifications} />
       </div>
     </>
   );

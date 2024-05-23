@@ -26,6 +26,7 @@
     "react-error-boundary": "^4.0.13",
     "react-helmet-async": "^2.0.5",
     "react-hook-form": "^7.51.4",
+    "react-portal": "4.2.2",
     "react-router": "6.23.0",
     "react-router-dom": "6.23.0",
     "react-transition-group": "4.4.5",

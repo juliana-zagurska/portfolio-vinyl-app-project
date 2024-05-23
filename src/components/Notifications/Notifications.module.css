@@ -1,0 +1,23 @@
+.root {
+  position: fixed;
+  z-index: 30;
+  right: 0;
+  bottom: 0;
+  padding: 24px;
+}
+
+.notification {
+  position: relative;
+  width: 320px;
+  padding: 16px 24px;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  background-color: #fff;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.25);
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.error {
+  border: 1px solid #ff0000;
+}

@@ -1,18 +1,26 @@
 import { useState, useEffect } from "react";
 
-export const useWishlist = () => {
+export const useWishlist = (addNotification) => {
   const [wishlist, setWishlist] = useState(() =>
     localStorage.getItem("wishlist")
       ? JSON.parse(localStorage.getItem("wishlist"))
       : []
   );
 
-  function toggleWishlist(vinylId) {
-    setWishlist((wishlist) =>
-      wishlist.includes(vinylId)
-        ? wishlist.filter((id) => id !== vinylId)
-        : [...wishlist, vinylId]
+  function toggleWishlist(vinyl) {
+    const inWishlist = wishlist.includes(vinyl);
+
+    setWishlist((prevWishlist) =>
+      inWishlist
+        ? prevWishlist.filter((id) => id !== vinyl)
+        : [...prevWishlist, vinyl]
     );
+
+    addNotification({
+      message: inWishlist
+        ? `${vinyl} removed from wishlist`
+        : `${vinyl} added to wishlist`,
+    });
   }
   useEffect(() => {
     localStorage.setItem("wishlist", JSON.stringify(wishlist));

@@ -12,10 +12,16 @@ import {
 import { useFilteredVinylListAsync } from "../../hooks/useFilteredVinylListAsync.js";
 import { Loader } from "../../components/Loader/index.js";
 
+import { useVinylDialog } from "../../hooks/useVinylDialog.js";
+import { VinylDialog } from "../../components/VinylDialog/index.js";
+
 const CARDS_PER_PAGE = 6;
 
 export const SearchResultsPage = () => {
   const [params, setParams] = useSearchParams(emptyFilters);
+
+  const { openedVinylId, handleOpenVinylDialog, handleCloseVinylDialog } =
+    useVinylDialog();
 
   const { collection, wishlist, toggleCollection, toggleWishlist } =
     useOutletContext();
@@ -77,9 +83,10 @@ export const SearchResultsPage = () => {
               key={vinyl.id}
               inCollection={collection.includes(vinyl.id)}
               onCollectionToggle={toggleCollection}
+              inWishlist={wishlist.includes(vinyl.id)}
               onWishlistToggle={toggleWishlist}
               vinyl={vinyl}
-              inWishlist={wishlist.includes(vinyl.id)}
+              onClick={() => handleOpenVinylDialog(vinyl.id)}
             />
           ))}
         </VinylList>
@@ -90,6 +97,8 @@ export const SearchResultsPage = () => {
         currentPage={page}
         onPageChange={setPage}
       />
+
+      <VinylDialog vinylId={openedVinylId} onClose={handleCloseVinylDialog} />
     </div>
   );
 };

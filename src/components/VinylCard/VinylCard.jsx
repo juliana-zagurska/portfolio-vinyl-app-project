@@ -8,11 +8,13 @@ export const VinylCard = ({
   inCollection,
   inWishlist,
   vinyl,
+  onClick,
   onCollectionToggle,
   onWishlistToggle,
 }) => {
   return (
     <motion.div
+      onClick={onClick}
       initial={{
         opacity: 0,
         y: 10,
@@ -38,7 +40,11 @@ export const VinylCard = ({
             }}
             button
             className={styles.faHeart}
-            onClick={() => onWishlistToggle(vinyl.id)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onWishlistToggle(vinyl.id);
+            }}
           >
             <HeartIcon isActive={inWishlist} color={"#fff"}></HeartIcon>
           </motion.button>
@@ -82,7 +88,11 @@ export const VinylCard = ({
             className={styles.collectionButton}
           >
             <CollectionButton
-              onClick={() => onCollectionToggle(vinyl.id)}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onCollectionToggle(vinyl.id);
+              }}
               isActive={inCollection}
             />
           </motion.div>
@@ -98,4 +108,5 @@ VinylCard.propTypes = {
   vinyl: PropTypes.object.isRequired,
   onCollectionToggle: PropTypes.func.isRequired,
   onWishlistToggle: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };

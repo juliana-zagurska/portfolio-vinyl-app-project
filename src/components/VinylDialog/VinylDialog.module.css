@@ -1,0 +1,271 @@
+.root {
+  position: fixed;
+  z-index: 20;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  box-sizing: border-box;
+  padding: 48px 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  overflow-y: auto;
+}
+
+.root.enter,
+.root.enterDone,
+.root.exit {
+  display: block;
+  background-color: rgba(0, 0, 0, 0);
+}
+
+.root.enterActive {
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.5s ease-out;
+}
+
+.root.enterDone,
+.root.exit {
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.root.exitActive {
+  background-color: rgba(0, 0, 0, 0);
+  transition: all 0.5s ease-out;
+}
+
+.root.exitDone {
+  display: none;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+
+.loader {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: inline-flex;
+  width: 80px;
+  height: 80px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 8px;
+  margin: auto;
+  background-color: #fff;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.25);
+}
+
+.loader.enter {
+  opacity: 0;
+}
+
+.loader.enterActive {
+  opacity: 1;
+  transition: all 0.5s ease-out;
+}
+
+.loader.enterDone {
+  opacity: 1;
+}
+
+.loader.exit {
+  opacity: 1;
+}
+
+.loader.exitActive {
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.loader.exitDone {
+  opacity: 0;
+}
+
+.modal {
+  position: relative;
+  max-width: 648px;
+  padding: 16px;
+  border-radius: 8px;
+  margin: 24px 0;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 16px rgba(0, 0, 0, 0.25);
+}
+
+.modal.enter {
+  opacity: 0;
+  transform: scale(0.9);
+}
+
+.modal.enterActive {
+  opacity: 1;
+  transform: scale(1);
+  transition: all 0.5s ease-out;
+}
+
+.modal.enterDone {
+  opacity: 1;
+}
+
+.modal.exit {
+  opacity: 1;
+}
+
+.modal.exitActive {
+  opacity: 0;
+  transition: all 0.5s ease-out;
+}
+
+.modal.exitDone {
+  opacity: 0;
+}
+
+.closeButton {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 16px 24px;
+  color: #0a2530;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.header {
+  margin-bottom: 12px;
+}
+
+.title {
+  margin: 0 60px 0 0;
+  color: #0a2530;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+.artist {
+  margin-bottom: 8px;
+  color: #0a2530;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.cover {
+  position: relative;
+}
+
+.coverActions {
+  position: absolute;
+  top: 0;
+  right: 0;
+  left: 0;
+  padding: 8px;
+}
+
+.coverImage {
+  overflow: hidden;
+  width: 100%;
+  border-radius: 8px;
+  aspect-ratio: 1;
+}
+
+.release {
+  display: flex;
+  justify-content: space-between;
+  margin: 12px 0;
+  gap: 4px;
+}
+
+.release span {
+  display: inline-block;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #efeef0;
+  color: #0a2530;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.genres {
+  display: inline-flex;
+  margin-bottom: 8px;
+  gap: 8px;
+}
+
+.genres span {
+  display: inline-block;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #efeef0;
+  color: #0a2530;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.styles {
+  display: inline-flex;
+  flex-wrap: wrap;
+  margin-bottom: 16px;
+  gap: 8px;
+}
+
+.styles span {
+  display: inline-block;
+  padding: 4px;
+  border-radius: 4px;
+  background-color: #efeef0;
+  color: #0a2530;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+.tracklistTitle {
+  margin-bottom: 8px;
+  color: #0a2530;
+  font-size: 18px;
+  font-weight: 500;
+}
+
+.tracks {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+.trackItem {
+  display: flex;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 8px;
+  color: #0a2530;
+  font-size: 16px;
+  gap: 8px;
+  line-height: 24px;
+}
+
+.trackPosition {
+  flex: 0 0 auto;
+  color: #738286;
+}
+
+.trackTitle {
+  overflow: hidden;
+  flex: 1 1 auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.trackDuration {
+  flex: 0 0 auto;
+  margin-left: auto;
+  color: #738286;
+}
