@@ -7,17 +7,17 @@ export const useCollection = (addNotification) => {
       : []
   );
   function toggleCollection(vinyl) {
-    const inCollection = collection.includes(vinyl);
+    const inCollection = collection.includes(vinyl.id);
     setCollection((prevCollection) =>
       inCollection
-        ? prevCollection.filter((id) => id !== vinyl)
-        : [...prevCollection, vinyl]
+        ? prevCollection.filter((id) => id !== vinyl.id)
+        : [...prevCollection, vinyl.id]
     );
 
     addNotification({
       message: inCollection
-        ? `${vinyl} removed from collection`
-        : `${vinyl} added to collection`,
+        ? `${vinyl.title} removed from collection`
+        : `${vinyl.title} added to collection`,
     });
   }
   useEffect(() => {

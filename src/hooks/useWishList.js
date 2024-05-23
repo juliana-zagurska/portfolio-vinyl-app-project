@@ -8,18 +8,18 @@ export const useWishlist = (addNotification) => {
   );
 
   function toggleWishlist(vinyl) {
-    const inWishlist = wishlist.includes(vinyl);
+    const inWishlist = wishlist.includes(vinyl.id);
 
     setWishlist((prevWishlist) =>
       inWishlist
-        ? prevWishlist.filter((id) => id !== vinyl)
-        : [...prevWishlist, vinyl]
+        ? prevWishlist.filter((id) => id !== vinyl.id)
+        : [...prevWishlist, vinyl.id]
     );
 
     addNotification({
       message: inWishlist
-        ? `${vinyl} removed from wishlist`
-        : `${vinyl} added to wishlist`,
+        ? `${vinyl.title} removed from wishlist`
+        : `${vinyl.title} added to wishlist`,
     });
   }
   useEffect(() => {

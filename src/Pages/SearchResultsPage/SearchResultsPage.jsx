@@ -98,7 +98,14 @@ export const SearchResultsPage = () => {
         onPageChange={setPage}
       />
 
-      <VinylDialog vinylId={openedVinylId} onClose={handleCloseVinylDialog} />
+      <VinylDialog
+        vinylId={openedVinylId}
+        onClose={handleCloseVinylDialog}
+        inCollection={collection.includes(openedVinylId)}
+        onCollectionToggle={toggleCollection}
+        inWishlist={wishlist.includes(openedVinylId)}
+        onWishlistToggle={toggleWishlist}
+      />
     </div>
   );
 };

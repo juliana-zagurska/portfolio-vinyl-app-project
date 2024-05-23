@@ -118,9 +118,9 @@ export function VinylDialog({
                         </div>
                         <div className={styles.genresRow}>
                           <div className={styles.genres}>
-                            {vinyl.genres.map((genre) => (
+                            {vinyl.genres.map((genre, index) => (
                               <span
-                                key={genre.id}
+                                key={genre.id || index}
                                 style={{
                                   backgroundColor: genre.color,
                                   color:
@@ -136,8 +136,8 @@ export function VinylDialog({
                         </div>
                         <div className={styles.stylesRow}>
                           <div className={styles.styles}>
-                            {vinyl.styles.map((style) => (
-                              <span key={style.name}>{style}</span>
+                            {vinyl.styles.map((style, index) => (
+                              <span key={style.name || index}>{style}</span>
                             ))}
                           </div>
                         </div>
@@ -145,7 +145,7 @@ export function VinylDialog({
                       <div className={styles.action}>
                         <CollectionButton
                           isActive={inCollection}
-                          onClick={() => onCollectionToggle(vinyl.id)}
+                          onClick={() => onCollectionToggle(vinyl)}
                         />
                       </div>
                     </article>

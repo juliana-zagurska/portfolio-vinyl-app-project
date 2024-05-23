@@ -43,7 +43,7 @@ export const VinylCard = ({
             onClick={(e) => {
               e.preventDefault();
               e.stopPropagation();
-              onWishlistToggle(vinyl.id);
+              onWishlistToggle(vinyl);
             }}
           >
             <HeartIcon isActive={inWishlist} color={"#fff"}></HeartIcon>
@@ -91,7 +91,7 @@ export const VinylCard = ({
               onClick={(e) => {
                 e.preventDefault();
                 e.stopPropagation();
-                onCollectionToggle(vinyl.id);
+                onCollectionToggle(vinyl);
               }}
               isActive={inCollection}
             />
