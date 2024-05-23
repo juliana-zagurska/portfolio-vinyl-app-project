@@ -25,9 +25,7 @@ export const GenreCard = ({ genre }) => {
     <motion.div
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
-      whileHover="hover"
-      whileTap="tap"
-      transition={{ duration: 1 }}
+      transition={{ duration: 2 }}
     >
       <Link
         to={`/search/results?genres=${genre.id}`}

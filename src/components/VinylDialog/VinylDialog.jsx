@@ -8,7 +8,6 @@ import { CloseIcon } from "../Icons/CloseIcon.jsx";
 import { motion, AnimatePresence } from "framer-motion";
 import { Portal } from "react-portal";
 import { Loader } from "../Loader/Loader.jsx";
-import { useEffect, useState } from "react";
 
 export function VinylDialog({
   vinylId,
@@ -19,17 +18,6 @@ export function VinylDialog({
   onClose,
 }) {
   const { data: vinyl, isLoading } = useVinylByIdAsync(vinylId);
-  const [isOpened, setIsOpened] = useState(false);
-
-  useEffect(() => {
-    if (vinylId) {
-      setIsOpened(true);
-    }
-  }, [vinylId]);
-
-  const handleClose = () => {
-    setIsOpened(false);
-  };
 
   const backdropVariants = {
     hidden: { opacity: 0 },
@@ -44,7 +32,7 @@ export function VinylDialog({
   return (
     <Portal>
       <AnimatePresence>
-        {isOpened && (
+        {vinylId && (
           <motion.div
             className={styles.root}
             variants={backdropVariants}
@@ -52,7 +40,6 @@ export function VinylDialog({
             animate="visible"
             exit="hidden"
             transition={{ duration: 0.5 }}
-            onAnimationComplete={() => !isOpened && onClose()}
           >
             {isLoading ? (
               <motion.div
@@ -78,7 +65,7 @@ export function VinylDialog({
                       <IconButton
                         variant="white"
                         icon={<CloseIcon size={24} />}
-                        onClick={handleClose}
+                        onClick={onClose}
                       />
                     </div>
                     <article className={styles.content}>
