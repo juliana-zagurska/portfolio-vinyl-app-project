@@ -1,10 +1,14 @@
+/* GenresList.module.css */
 .root {
+  width: 100%; /* Adjust this if needed to fit the container it resides in */
   padding: 0 16px;
-  margin: 0 -16px;
-  overflow-y: auto;
+  overflow-x: auto;  /* Enables horizontal scrolling */
+  overflow-y: hidden;  /* Disables vertical scrolling */
 }
 
 .inner {
-  display: inline-flex;
+  display: flex;
+  flex-wrap: nowrap;  /* Ensures no vertical stacking occurs */
   gap: 12px;
+  white-space: nowrap;  /* Ensures inline elements like text do not wrap */
 }
