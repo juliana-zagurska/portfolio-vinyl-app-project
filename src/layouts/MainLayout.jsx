@@ -4,19 +4,14 @@ import { Helmet } from "react-helmet-async";
 import { ErrorBoundary } from "react-error-boundary";
 import { Loader } from "../components/Loader/index.js";
 import { Suspense } from "react";
-import { useFilteredVinylListAsync } from "../hooks/useFilteredVinylListAsync.js";
+import { useVinylList } from "../hooks/useVinylList";
 import { Error } from "../components/Error/index.js";
 
 export const MainLayout = () => {
   const { collection, wishlist, toggleCollection, toggleWishlist } =
     useOutletContext();
 
-  const { results } = useFilteredVinylListAsync(
-    {},
-    { offset: 0, limit: 5 },
-    { suspense: false }
-  );
-
+  const vinylList = useVinylList();
   return (
     <>
       <Helmet>
@@ -25,7 +20,7 @@ export const MainLayout = () => {
       <Header
         collectionSize={collection.length}
         wishlistSize={wishlist.length}
-        vinylList={results}
+        vinylList={vinylList}
         type="search"
       />
       <Suspense fallback={<Loader />}>
