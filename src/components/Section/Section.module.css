@@ -1,0 +1,26 @@
+.root {
+  box-sizing: border-box;
+  padding: 16px 0;
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 16px 0;
+}
+
+.link {
+  color: #54666E;
+  font-weight: 600;
+  text-align: left;
+}
+
+.link:hover, .link:active {
+  color: #54666E;
+}
+
+.title {
+  font-size: 20px;
+  font-weight: 600;
+}

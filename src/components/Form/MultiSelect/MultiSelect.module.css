@@ -1,0 +1,90 @@
+.root {
+  all: unset;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  padding: 7px 12px;
+  border: 1px solid #edeef0;
+  border-radius: 8px;
+  background-color: #ffffff;
+  color: #0a2530;
+  cursor: pointer;
+  line-height: 24px;
+}
+
+.isActive {
+  border-color: #0a2530;
+}
+
+.holder {
+  position: relative;
+}
+
+.innerContent {
+  display: flex;
+  align-items: center;
+}
+
+.value {
+  overflow: hidden;
+  flex: 1 1 auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.placeholder {
+  overflow: hidden;
+  flex: 1 1 auto;
+  color: #6c7072;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.dropdown {
+  position: absolute;
+  z-index: 100;
+  top: 100%;
+  right: 0;
+  left: 0;
+  max-height: 240px;
+  border: 1px solid #0a2530;
+  border-radius: 4px;
+  margin-top: 8px;
+  background-color: #fff;
+  overflow-y: auto;
+}
+
+.optionIndicator {
+  flex: 0 0 auto;
+  margin-right: 4px;
+}
+
+.optionLabel {
+  overflow: hidden;
+  flex: 1 1 auto;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.option {
+  all: unset;
+  display: inline-flex;
+  width: 100%;
+  height: 40px;
+  box-sizing: border-box;
+  align-items: center;
+  padding: 7px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  line-height: 24px;
+}
+
+.isError {
+  border-color: #ff0000;
+}
+
+.error {
+  margin-top: 4px;
+  color: #ff0000;
+  font-size: 12px;
+}
