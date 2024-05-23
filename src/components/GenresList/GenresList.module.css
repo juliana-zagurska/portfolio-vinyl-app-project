@@ -4,6 +4,9 @@
   padding: 0 16px;
   overflow-x: auto;  /* Enables horizontal scrolling */
   overflow-y: hidden;  /* Disables vertical scrolling */
+  &::-webkit-scrollbar {
+    display: none;
+  }
 }
 
 .inner {

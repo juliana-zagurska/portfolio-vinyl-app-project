@@ -2,6 +2,7 @@ import PropTypes from "prop-types";
 import styles from "./VinylCard.module.css";
 import { HeartIcon } from "../Icons/HeartIcon.jsx";
 import { CollectionButton } from "../CollectionButton/CollectionButton.jsx";
+import { motion } from "framer-motion";
 
 export const VinylCard = ({
   inCollection,
@@ -11,7 +12,25 @@ export const VinylCard = ({
   onWishlistToggle,
 }) => {
   return (
-    <div className={styles.item} key={vinyl.id}>
+    <motion.div
+      /*animate={{ y: 10 }}*/
+      initial={{
+        opacity: 0,
+        y: 10,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: false,
+      }}
+      transition={{
+        duration: 1,
+      }}
+      className={styles.item}
+      key={vinyl.id}
+    >
       <div className={styles.vinylCard}>
         <div className={styles.vinylCard__cover}>
           <button
@@ -58,7 +77,7 @@ export const VinylCard = ({
           </div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
