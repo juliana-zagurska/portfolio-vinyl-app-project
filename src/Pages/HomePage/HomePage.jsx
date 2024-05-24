@@ -15,23 +15,25 @@ export const HomePage = () => {
     useOutletContext();
 
   return (
-    <div className="main">
-      <GenresList />
-      <div className="item-list">
-        <VinylList>
-          {results.map((vinyl) => (
-            <VinylCard
-              key={vinyl.id}
-              inCollection={collection.includes(vinyl.id)}
-              onCollectionToggle={toggleCollection}
-              onWishlistToggle={toggleWishlist}
-              vinyl={vinyl}
-              inWishlist={wishlist.includes(vinyl.id)}
-            />
-          ))}
-        </VinylList>
+    <>
+      <div className="main">
+        <div className="item-list">
+          <GenresList />
+          <VinylList>
+            {results.map((vinyl) => (
+              <VinylCard
+                key={vinyl.id}
+                inCollection={collection.includes(vinyl.id)}
+                onCollectionToggle={toggleCollection}
+                onWishlistToggle={toggleWishlist}
+                vinyl={vinyl}
+                inWishlist={wishlist.includes(vinyl.id)}
+              />
+            ))}
+          </VinylList>
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

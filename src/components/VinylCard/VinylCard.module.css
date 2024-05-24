@@ -1,3 +1,10 @@
+.root {
+  position: relative;
+  display: flex;
+  overflow: hidden;
+  flex-direction: column;
+  cursor: pointer;
+}
 
 .item{
   display: flex;
@@ -80,7 +87,7 @@
     display: grid;
     padding: 0px 20px 0px;
     grid-gap: 20px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
   }
   .vinyl-card {
     display: flex;

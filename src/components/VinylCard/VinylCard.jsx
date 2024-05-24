@@ -2,24 +2,52 @@ import PropTypes from "prop-types";
 import styles from "./VinylCard.module.css";
 import { HeartIcon } from "../Icons/HeartIcon.jsx";
 import { CollectionButton } from "../CollectionButton/CollectionButton.jsx";
+import { motion } from "framer-motion";
 
 export const VinylCard = ({
   inCollection,
   inWishlist,
   vinyl,
+  onClick,
   onCollectionToggle,
   onWishlistToggle,
 }) => {
   return (
-    <div className={styles.item} key={vinyl.id}>
+    <motion.div
+      onClick={onClick}
+      initial={{
+        opacity: 0,
+        y: 10,
+      }}
+      whileInView={{
+        opacity: 1,
+        y: 0,
+      }}
+      viewport={{
+        once: false,
+      }}
+      transition={{
+        duration: 1,
+      }}
+      className={styles.item}
+      key={vinyl.id}
+    >
       <div className={styles.vinylCard}>
         <div className={styles.vinylCard__cover}>
-          <button
+          <motion.button
+            animate={{
+              scale: inWishlist ? 1.2 : 0.9,
+            }}
+            button
             className={styles.faHeart}
-            onClick={() => onWishlistToggle(vinyl.id)}
+            onClick={(e) => {
+              e.preventDefault();
+              e.stopPropagation();
+              onWishlistToggle(vinyl);
+            }}
           >
             <HeartIcon isActive={inWishlist} color={"#fff"}></HeartIcon>
-          </button>
+          </motion.button>
           <img
             src={vinyl.image}
             alt={vinyl.name}
@@ -50,15 +78,27 @@ export const VinylCard = ({
           </div>
         </div>
         <div className={styles.vinylCard__action}>
-          <div className={styles.collectionButton}>
+          <motion.div
+            whileTap={{
+              scale: 0.5,
+            }}
+            transition={{
+              duration: 0.1,
+            }}
+            className={styles.collectionButton}
+          >
             <CollectionButton
-              onClick={() => onCollectionToggle(vinyl.id)}
+              onClick={(e) => {
+                e.preventDefault();
+                e.stopPropagation();
+                onCollectionToggle(vinyl);
+              }}
               isActive={inCollection}
             />
-          </div>
+          </motion.div>
         </div>
       </div>
-    </div>
+    </motion.div>
   );
 };
 
@@ -68,4 +108,5 @@ VinylCard.propTypes = {
   vinyl: PropTypes.object.isRequired,
   onCollectionToggle: PropTypes.func.isRequired,
   onWishlistToggle: PropTypes.func.isRequired,
+  onClick: PropTypes.func,
 };
